@@ -1,0 +1,114 @@
+.Footer {
+  padding: 80px;
+  max-width: 100%;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+
+  @media (max-width: 900px) {
+    padding-inline: 40px;
+  }
+}
+
+.FooterPosition {
+  padding-left: 4px !important;
+}
+
+.FooterElement {
+  margin-left: 0px;
+  width: auto;
+
+  Grid {
+    padding-left: 0px;
+    margin-inline: 16px;
+  }
+}
+
+.footer-button {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  color: rgb(34, 62, 32) !important;
+  text-transform: none !important;
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  line-height: 22px !important;
+  font-weight: 600!important;
+
+  &:hover {
+    border-radius: 12px !important;
+  }
+}
+
+.Copyright {
+  text-align: end;
+  vertical-align: center;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  margin-bottom: 0px;
+
+  @media (max-width: 600px) {
+    text-align: start;
+  }
+}
+
+.animated-element-footer {
+  opacity: 0;
+  transform: translateX(-5%);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.animated-element-footer.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animated-element-footer.exit {
+  opacity: 0;
+  transform: translateX(-5%);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.animated-element-logo {
+  opacity: 0;
+  transform: translateY(5%);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.animated-element-logo.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animated-element-logo.exit {
+  opacity: 0;
+  transform: translateY(5%);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.animated-element-copyright {
+  opacity: 0;
+  transform: translateX(5%);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+
+  @media (max-width: 600px) {
+    transform: translateX(-5%);
+  }
+}
+
+.animated-element-copyright.visible {
+  opacity: 1;
+  transform: translateX(0);
+
+  @media (max-width: 600px) {
+    transform: translateX(0%);
+  }
+}
+
+.animated-element-copyright.exit {
+  opacity: 0;
+  transform: translateX(5%);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+
+  @media (max-width: 600px) {
+    transform: translateX(-5%);
+  }
+}

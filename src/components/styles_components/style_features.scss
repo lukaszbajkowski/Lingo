@@ -1,0 +1,41 @@
+.FeaturesContainer {
+  padding-inline: 64px !important;
+  @media (max-width: 1000px) {
+    padding-inline: 32px !important;
+  }
+}
+
+.FeaturesGrid {
+  padding-block: 48px;
+  padding-inline: 72px;
+
+  @media (max-width: 600px) {
+    padding-top: 32px ;
+    padding-inline: 56px;
+  }
+}
+
+.FeaturesItem {
+  color: rgb(34, 62, 32);
+
+  h1 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    word-break: break-word;
+  }
+
+  h5 {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+  }
+}
+
+.fa-icon {
+  padding: 10px;
+  border-radius: 30%;
+  background-color: #DAFCD7;
+  color: rgb(34, 62, 32);
+  margin-bottom: 16px;
+}
