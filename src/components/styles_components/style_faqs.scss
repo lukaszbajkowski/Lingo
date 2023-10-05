@@ -4,16 +4,17 @@
   margin-top: 86px !important;
   padding: 80px;
   max-width: 100%;
-  margin-left: 0px !important;
-  margin-right: 0px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
   @media (max-width: 900px) {
     padding-inline: 40px;
   }
 }
 
 .SectionContent {
-  padding-left: 0px;
-  padding-top: 0px;
+  padding-left: 0;
+  padding-top: 0;
   margin-block: auto;
 }
 
@@ -32,7 +33,7 @@
 }
 
 .Question {
-  margin: 0px;
+  margin: 0;
   font-size: 24px;
   line-height: 32px;
   font-weight: 600;
@@ -44,15 +45,15 @@
 }
 
 .Answer {
-  margin: 0px;
+  margin: 0;
   font-size: 20px;
   line-height: 30px;
   font-weight: 400;
 }
 
 .css-mhc70k-MuiGrid-root>.MuiGrid-item {
-  padding: 16px 0px !important;
-  padding-bottom: 0px !important;
+  padding: 16px 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .css-o4b71y-MuiAccordionSummary-content {
@@ -64,14 +65,13 @@
   margin-inline: 24px !important;
 }
 .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
-  //max-height: 64px !important;
   min-height: 64px !important;
-  padding-inline: 0px;
+  padding-inline: 0;
   margin-inline: 24px;
 }
 
 .css-1elwnq4-MuiPaper-root-MuiAccordion-root.Mui-expanded {
-  margin: 0px !important;
+  margin: 0 !important;
 }
 
 .css-1elwnq4-MuiPaper-root-MuiAccordion-root:before{
@@ -87,17 +87,17 @@
 .css-15v22id-MuiAccordionDetails-root {
   margin-left: 24px !important;
   margin-right: 65px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-bottom: 0px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 0 !important;
 
   @media (max-width: 700px) {
-    margin-right: 0px !important;
+    margin-right: 0 !important;
   }
 }
 
-.fa-icon {
+.fa-icon-faqs {
   background-color: rgba(0,0,0,0);
   color: #282c34;
-  margin: 0px;
+  margin: 0;
 }

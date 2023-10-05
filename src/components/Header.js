@@ -1,4 +1,3 @@
-// src/components/Header.js
 import React, {useEffect, useState} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,13 +10,13 @@ import './styles_components/style_header.scss';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Link } from 'react-scroll';
 import AnimatedElement from "./AnimatedElementOnce";
+import {handleOffsetChange} from "../utils";
 
 
 function Header() {
 
   const isLargeScreen = useMediaQuery('(min-width:1200px)');
   const is600Screen = useMediaQuery('(max-width:600px)');
-  const isScreenSmall = useMediaQuery('(max-width:700px)');
 
   const toolbarStyle = {
     justifyContent: 'space-between',
@@ -31,49 +30,34 @@ function Header() {
     boxShadow: 'none',
     minHeight: 64,
     position: 'fixed',
-    width: is600Screen ? 'calc(100% - 64px)' : 'calc(100% - 80px)',
+    width: is600Screen ? 'calc(100% - 80px)' : 'calc(100% - 80px)',
     left: 0,
     right: 0,
-    margin: isLargeScreen ? '0px auto' : (is600Screen ? 'auto 32px' : 'auto 40px'),
+    margin: isLargeScreen ? '0px auto' : (is600Screen ? 'auto 40px' : 'auto 40px'),
+    padding: is600Screen ? '0px 8px' : '0px 0px',
     zIndex: 1000,
     maxWidth: '1120px',
   };
 
-
-
   const [offset, setOffset] = useState(70);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 900) {
-        setOffset(-50);
-      } else {
-        setOffset(70);
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    handleResize();
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+    useEffect(() => {
+        return handleOffsetChange(setOffset);
+    }, []);
 
   return (
     <div>
       <AppBar position="sticky" style={navbarStyle}>
         <Toolbar style={toolbarStyle}>
-          <AnimatedElement className="animated-logo-delay-100ms">
+          <AnimatedElement className="animated-element-header animated-element-header-delay-100ms">
             <Typography variant="h6" component={RouterLink} to="/" style={{ textDecoration: 'none', color: 'white' }}>
               <img src={logo} alt="Logo" className="App-logo" />
             </Typography>
           </AnimatedElement>
-          {isScreenSmall ? null : (
+          <div className="HeaderButton">
             <Grid container spacing={2} style={{ marginLeft: 0, width: 'auto' }}>
               <Grid item style={{ paddingLeft: 0 }}>
-                <AnimatedElement className="animated-element-header-delay-200ms">
+                <AnimatedElement className="animated-element-header animated-element-header-delay-200ms">
                   <Link
                     activeClass="active"
                     to="about-us"
@@ -94,7 +78,7 @@ function Header() {
               </Grid>
 
               <Grid item style={{ paddingLeft: 0 }}>
-                <AnimatedElement className="animated-element-header-delay-200ms">
+                <AnimatedElement className="animated-element-header animated-element-header-delay-300ms">
                   <Link
                     className="stylebutton"
                     activeClass="active"
@@ -116,7 +100,7 @@ function Header() {
               </Grid>
 
               <Grid item style={{ paddingLeft: 0 }}>
-                <AnimatedElement className="animated-element-header-delay-200ms">
+                <AnimatedElement className="animated-element-header animated-element-header-delay-400ms">
                   <Link
                     className="stylebutton"
                     activeClass="active"
@@ -138,7 +122,7 @@ function Header() {
               </Grid>
 
               <Grid item style={{ paddingLeft: 0 }}>
-                <AnimatedElement className="animated-element-header-delay-200ms">
+                <AnimatedElement className="animated-element-header animated-element-header-delay-500ms">
                   <Link
                     className="stylebutton"
                     activeClass="active"
@@ -159,8 +143,8 @@ function Header() {
                 </AnimatedElement>
               </Grid>
             </Grid>
-          )}
-          <AnimatedElement className="animated-element-header-delay-200ms">
+          </div>
+          <AnimatedElement className="animated-element-header animated-element-header-delay-600ms">
             <Button variant="contained" color="primary" component={RouterLink} className="ButtonGetStarted" to="/start">
               Rozpocznij
             </Button>

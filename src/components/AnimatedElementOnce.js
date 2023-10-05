@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
+import {Grid} from "@mui/material";
 
-const AnimatedElement = ({ children, className }) => {
+const AnimatedElement = ({ children, className, threshold = 0.1 }) => {
   const elementRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -14,7 +15,7 @@ const AnimatedElement = ({ children, className }) => {
         });
       },
       {
-        threshold: .1, // Dostosuj ten próg według potrzeb
+        threshold: threshold,
       }
     );
 
@@ -26,12 +27,14 @@ const AnimatedElement = ({ children, className }) => {
   }, []);
 
   return (
-    <div
+    <Grid
+        item
       className={`${className} ${isVisible ? 'visible' : 'exit'}`}
       ref={elementRef}
+
     >
       {children}
-    </div>
+    </Grid>
   );
 };
 

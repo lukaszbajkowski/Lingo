@@ -6,6 +6,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import AnimatedElement from "./AnimatedElementOnce";
 
 const faqData = [
   {
@@ -47,7 +48,7 @@ function FAQs() {
     <FontAwesomeIcon
       key={index}
       icon={isExpanded ? faMinus : faPlus}
-      className="fa-icon"
+      className="fa-icon-faqs"
       size="xl"
     />
   ));
@@ -56,37 +57,41 @@ function FAQs() {
     <Grid container spacing={2} className="Section">
       <Grid item xs={12} className="SectionContent">
         <div>
-          <h1 className="Header">
-            Masz pytania?
-          </h1>
+          <AnimatedElement className="animated-element animated-element-delay-100ms">
+            <h1 className="Header">
+              Masz pytania?
+            </h1>
+          </AnimatedElement>
         </div>
-        <div>
-          {faqData.map((faq, index) => (
-            <Accordion
-              key={index}
-              className={index === faqData.length - 1 ? "AccordionQuestionLast" : "AccordionQuestion"}
-              expanded={expanded[index]}
-              onChange={() => handleAccordionChange(index)}
-              style={expanded[index] ? { paddingBottom: 24, marginBottom: index === faqData.length - 1 ? 0 : 12 } : { paddingBottom: 12, marginBottom: index === faqData.length - 1 ? 0 : 12 }}
-            >
-              <AccordionSummary
-                expandIcon={faIcons[index]}
-                aria-controls={`panel${index + 1}a-content`}
-                id={`panel${index + 1}a-header`}
-                style={{ padding: 0 }}
+          <div>
+            {faqData.map((faq, index) => (
+                <AnimatedElement className="animated-element animated-element-delay-100ms" threshold='.8'>
+              <Accordion
+                key={index}
+                className={index === faqData.length - 1 ? "AccordionQuestionLast" : "AccordionQuestion"}
+                expanded={expanded[index]}
+                onChange={() => handleAccordionChange(index)}
+                style={expanded[index] ? { paddingBottom: 24, marginBottom: index === faqData.length - 1 ? 0 : 12 } : { paddingBottom: 12, marginBottom: index === faqData.length - 1 ? 0 : 12 }}
               >
-                <p className="Question">
-                  {faq.question}
-                </p>
-              </AccordionSummary>
-              <AccordionDetails>
-                <p className="Answer">
-                  {faq.answer}
-                </p>
-              </AccordionDetails>
-            </Accordion>
-          ))}
-        </div>
+                <AccordionSummary
+                  expandIcon={faIcons[index]}
+                  aria-controls={`panel${index + 1}a-content`}
+                  id={`panel${index + 1}a-header`}
+                  style={{ padding: 0 }}
+                >
+                  <p className="Question">
+                    {faq.question}
+                  </p>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <p className="Answer">
+                    {faq.answer}
+                  </p>
+                </AccordionDetails>
+              </Accordion>
+                </AnimatedElement>
+            ))}
+          </div>
       </Grid>
     </Grid>
   );

@@ -17,7 +17,7 @@ const AnimatedElement = ({ children, className, speed }) => {
         });
       },
       {
-        threshold: speed, // Dostosuj ten próg według potrzeb
+        threshold: speed,
       }
     );
 

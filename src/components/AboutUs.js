@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './styles_components/style_header.scss';
+import './styles_components/style_about_us.scss';
 import AnimatedElement from './AnimatedElement';
 import AnimatedElementLoading from './AnimatedElementOnce';
 import Image1 from "./images/Notes-bro.svg";

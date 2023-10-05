@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles/style.scss';
+import './components/styles_components/style_animations.scss';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -20,6 +21,7 @@ import { Element } from 'react-scroll';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelopeOpen, faFile, faListCheck, faChartPie, faPersonDigging, faChartLine, faStar, faPlus } from '@fortawesome/free-solid-svg-icons'
+import LoadingScreen from "./components/Loader";
 
 library.add(fab, faEnvelopeOpen, faFile, faListCheck, faChartPie, faPersonDigging, faChartLine, faStar, faPlus)
 
@@ -44,7 +46,7 @@ function App() {
     return (
         <Router>
             <ThemeProvider theme={theme}>
-                <Container maxWidth="lg" className="Container" style={{padding: 0}}>
+                <Container maxWidth="lg" className="Container">
                     <Box sx={{ height: 'auto', mx: 2, }} >
                         <CssBaseline />
                         <Header/>
@@ -77,6 +79,7 @@ function App() {
                         <Footer/>
                     </Box>
                 </Container>
+                      <LoadingScreen />
             </ThemeProvider>
         </Router>
     );
