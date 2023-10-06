@@ -1,7 +1,7 @@
 # Lingo
 > Lingo is a responsive design based on the React library that allows users to subscribe to and access on-demand translations from multiple languages made by a translator.
 >
-> Live demo [_here_](https://www.example.com).
+> Live demo [_here_](https://lingo-phi.vercel.app).
 
 ## Table of Contents
 * [General Info](#general-information)
