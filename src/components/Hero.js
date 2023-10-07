@@ -6,6 +6,7 @@ import {Link as RouterLink} from "react-router-dom";
 import Button from "@mui/material/Button";
 import {Grid} from "@mui/material";
 import AnimatedElement from './AnimatedElementOnce';
+import {Link} from "react-scroll";
 
 function Hero() {
     return (
@@ -23,9 +24,19 @@ function Hero() {
                   </p>
                 </AnimatedElement>
                 <AnimatedElement className="animated-element animated-element-hero-delay-300ms">
-                  <Button variant="contained" color="primary" component={RouterLink} className="ButtonHero" to="/start">
-                    Zacznij już
-                  </Button>
+                    <Link
+                      className="stylebutton"
+                      activeClass="active"
+                      to="pricing"
+                      spy={true}
+                      smooth={true}
+                      offset={-90}
+                      duration={500}
+                    >
+                        <Button variant="contained" color="primary" component={RouterLink} className="ButtonHero" to="/start">
+                        Zacznij już
+                        </Button>
+                    </Link>
                 </AnimatedElement>
               </div>
             </Grid>

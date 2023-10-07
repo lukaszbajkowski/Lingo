@@ -51,7 +51,7 @@
   font-weight: 400;
 }
 
-.Section>.SectionContent {
+.Section > .SectionContent {
   padding: 16px 0 !important;
   padding-bottom: 0 !important;
 }
@@ -61,31 +61,23 @@
   margin-bottom: 16px !important;
 }
 
-.MuiButtonBase-root{
+.AccordionQuestionLast > div,
+.AccordionQuestion > div {
   margin-inline: 24px !important;
 }
+
 .MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
   min-height: 64px !important;
-  padding-inline: 0;
-  margin-inline: 24px;
 }
 
-.MuiPaper-root-MuiAccordion-root.Mui-expanded {
-  margin: 0 !important;
-}
-
-.MuiPaper-root-MuiAccordion-root:before{
-  background-color: rgba(0,0,0,0) !important;
-}
-
-.AccordionQuestionLast, .AccordionQuestion {
+.AccordionQuestionLast,
+.AccordionQuestion {
   box-shadow: none !important;
   background-color: rgba(0,0,0,0) !important;
   color: #282c34 !important;
 }
 
 .MuiAccordionDetails-root {
-  margin-left: 24px !important;
   margin-right: 65px !important;
   padding-left: 0 !important;
   padding-right: 0 !important;

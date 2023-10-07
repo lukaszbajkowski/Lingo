@@ -4,7 +4,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Link as RouterLink } from 'react-router-dom';
-import {Grid, Stack} from "@mui/material";
+import {Grid} from "@mui/material";
 import logo from './images/logo-no-background.png';
 import './styles_components/style_header.scss';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -14,7 +14,9 @@ import {handleOffsetChange} from "../utils";
 
 
 function Header() {
-
+  function refreshPage(){
+    window.location.reload();
+}
   const isLargeScreen = useMediaQuery('(min-width:1200px)');
   const is600Screen = useMediaQuery('(max-width:600px)');
 
@@ -50,9 +52,9 @@ function Header() {
       <AppBar position="sticky" style={navbarStyle}>
         <Toolbar style={toolbarStyle}>
           <AnimatedElement className="animated-element-header animated-element-header-delay-100ms">
-            <Typography variant="h6" component={RouterLink} to="/" style={{ textDecoration: 'none', color: 'white' }}>
+            <RouterLink to="/">
               <img src={logo} alt="Logo" className="App-logo" />
-            </Typography>
+            </RouterLink>
           </AnimatedElement>
           <div className="HeaderButton">
             <Grid container spacing={2} style={{ marginLeft: 0, width: 'auto' }}>
@@ -145,9 +147,19 @@ function Header() {
             </Grid>
           </div>
           <AnimatedElement className="animated-element-header animated-element-header-delay-600ms">
-            <Button variant="contained" color="primary" component={RouterLink} className="ButtonGetStarted" to="/start">
-              Rozpocznij
-            </Button>
+            <Link
+              className="stylebutton"
+              activeClass="active"
+              to="pricing"
+              spy={true}
+              smooth={true}
+              offset={-90}
+              duration={500}
+            >
+              <Button variant="contained" color="primary" component={RouterLink} className="ButtonGetStarted" to="/start">
+                Rozpocznij
+              </Button>
+            </Link>
           </AnimatedElement>
         </Toolbar>
       </AppBar>

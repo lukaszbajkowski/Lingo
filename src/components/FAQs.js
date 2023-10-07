@@ -76,7 +76,7 @@ function FAQs() {
                 <AccordionSummary
                   expandIcon={faIcons[index]}
                   aria-controls={`panel${index + 1}a-content`}
-                  id={`panel${index + 1}a-header`}
+                  id={`panel-header`}
                   style={{ padding: 0 }}
                 >
                   <p className="Question">
