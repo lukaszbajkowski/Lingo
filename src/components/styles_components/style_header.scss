@@ -12,13 +12,21 @@
   margin: 86px 24px 0 !important;
 
   @media (max-width: 900px) {
-    padding: 80px 40px;
+    padding: 32px 24px;
   }
 }
 
 .HeroGrid {
   padding: 0;
   margin: auto;
+}
+
+.HeroDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
 }
 
 .ButtonHero {
@@ -35,6 +43,7 @@
   max-height: 350px;
   max-width: 350px;
   margin: 0 auto;
+  display: block;
 
   @media (max-width: 900px) {
     margin-top: 24px;

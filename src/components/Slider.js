@@ -43,9 +43,9 @@ const Slider = () => {
       window.addEventListener('resize', adjustSlideHeight);
       adjustSlideHeight();
 
-      return () => {
-        window.removeEventListener('resize', adjustSlideHeight);
-      };
+      // return () => {
+      //   window.removeEventListener('resize', adjustSlideHeight);
+      // };
     }
   }, [swiperInstance]);
 
@@ -102,10 +102,10 @@ const Slider = () => {
           {slidesData.map((slide, index) => (
             <SwiperSlide className="swiper-card" key={index}>
               <Grid container spacing={2} className="swiper-container">
-                <Grid item xs={12}>
+                <Grid item xs={12} className={`swiper-grid`}>
                   <h1>{slide.title}</h1>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} className={`swiper-grid`}>
                   <p>{slide.content}</p>
                 </Grid>
                 <Grid item xs={12}>
