@@ -1,15 +1,13 @@
-// server.js
 const express = require('express');
-const path = require('path');
 const app = express();
+const { port } = require('./config');
+const apirouter = require('./routes/api');
 
-app.use(express.static(path.join(__dirname, 'build')));
+// routes
+app.use('/', apirouter);
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// server
+app.listen(port, function () {
+    console.log(`Example app listening on port ${port}!`);
 });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Serwer działa na porcie ${port}`);
-});
