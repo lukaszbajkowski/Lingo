@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/style.scss';
 import './styles_components/style_animations.scss';
 
-import Header from './Header';
+import Header from './Header/Header';
 import Hero from './Hero';
 import AboutUs from './AboutUs';
 import AboutUsText from './AboutUsText'
@@ -18,7 +18,6 @@ import LoadingScreen from "./Loader";
 import {Box, Container, CssBaseline, ThemeProvider} from "@mui/material";
 import { createTheme } from '@mui/material/styles';
 import { Element } from 'react-scroll';
-import { BrowserRouter as Router } from 'react-router-dom';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'

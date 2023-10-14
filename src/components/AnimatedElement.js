@@ -6,35 +6,38 @@ const AnimatedElement = ({ children, className, speed }) => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-          else {
-            setIsVisible(false);
-          }
-        });
-      },
-      {
-        threshold: speed,
-      }
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setIsVisible(true);
+            } else {
+              setIsVisible(false);
+            }
+          });
+        },
+        {
+          threshold: speed,
+        }
     );
 
-    observer.observe(elementRef.current);
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
 
     return () => {
-      observer.unobserve(elementRef.current);
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
+      }
     };
-  }, []);
+  }, [speed]);
 
   return (
-    <div
-      className={`${className} ${isVisible ? 'visible' : 'exit'}`}
-      ref={elementRef}
-    >
-      {children}
-    </div>
+      <div
+          className={`${className} ${isVisible ? 'visible' : 'exit'}`}
+          ref={elementRef}
+      >
+        {children}
+      </div>
   );
 };
 

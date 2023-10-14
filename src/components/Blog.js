@@ -2,22 +2,12 @@ import React from 'react';
 import '../styles/style.scss';
 import './styles_components/style_animations.scss';
 
-import Header from './Header';
-import Hero from './Hero';
-import AboutUs from './AboutUs';
-import AboutUsText from './AboutUsText'
-import Slider from './Slider'
-import Features from "./Features";
-import PricingText from "./PricingText";
-import Pricing from "./Pricing";
-import FAQs from "./FAQs";
-import CTA from "./CTA";
+import Header from './Header/Header';
 import Footer from "./Footer";
 import LoadingScreen from "./Loader";
 
 import {Box, Container, CssBaseline, ThemeProvider} from "@mui/material";
 import { createTheme } from '@mui/material/styles';
-import { Element } from 'react-scroll';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -49,32 +39,10 @@ function Blog() {
                 <Box sx={{ height: 'auto', mx: 2, }} >
                     <CssBaseline />
                     <Header/>
-                    <Hero/>
-                    <Element name="about-us">
-                        <AboutUsText/>
-                        <AboutUs/>
-                    </Element>
                 </Box>
             </Container>
-            <Element name="how-it-works">
-                <Slider/>
-                <Features/>
-            </Element>
-            <Element name="pricing">
-                <PricingText/>
-                <Pricing/>
-            </Element>
-            <Element name="faqs">
-                <Container maxWidth="lg" className="Container" style={{padding: 0}}>
-                    <Box sx={{ height: 'auto', mx: 2, }} >
-                        <FAQs/>
-                    </Box>
-                </Container>
-            </Element>
             <Container maxWidth="lg" className="Container" style={{padding: 0}}>
                 <Box sx={{ height: 'auto', mx: 2, }} >
-                    <CssBaseline />
-                    <CTA/>
                     <Footer/>
                 </Box>
             </Container>
