@@ -5,7 +5,6 @@ import {Link as RouterLink} from "react-router-dom";
 import Button from "@mui/material/Button";
 import {Grid} from "@mui/material";
 import AnimatedElement from './AnimatedElementOnce';
-
 function CTA() {
     return (
         <Grid container spacing={2} className="CTA">
@@ -21,9 +20,13 @@ function CTA() {
                     </p>
                 </AnimatedElement>
                 <AnimatedElement className="animated-element animated-element-delay-300ms">
-                    <Button variant="contained" color="primary" component={RouterLink} className="ButtonHero" to="/start">
+                    {/*<Button variant="contained" color="primary" component={RouterLink} className="ButtonHero" to="/blog">*/}
+                    {/*    Zacznij już*/}
+                    {/*</Button>*/}
+                    <Button variant="contained" color="primary" component={RouterLink} to="/blog" className="ButtonHero">
                         Zacznij już
                     </Button>
+
                 </AnimatedElement>
             </Grid>
             <Grid item xs={12} sm={12} md={6} style={{paddingLeft: 0, paddingTop:0}}>

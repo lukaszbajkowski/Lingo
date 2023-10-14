@@ -80,7 +80,7 @@ function Footer() {
                                     color="inherit"
                                     className="column-button"
                                 >
-                                    Ceny
+                                    Blog
                                 </Button>
                             </Link>
                         </Grid>

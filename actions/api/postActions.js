@@ -38,7 +38,6 @@ class PostActions {
             console.error('Błąd podczas pobierania postów:', error);
             return res.status(500).json({ message: "Wystąpił błąd podczas pobierania postów" });
         }
-
         res.status(200).json(posts);
     }
 
@@ -47,6 +46,7 @@ class PostActions {
         const post = await Post.findOne({ _id: id });
 
         res.status(200).json(post);
+
     }
 
     async updatePost(req, res) {

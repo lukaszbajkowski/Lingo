@@ -65,31 +65,31 @@ function FAQs() {
         </div>
           <div>
             {faqData.map((faq, index) => (
-                <AnimatedElement className="animated-element animated-element-delay-100ms" threshold='.8'>
-              <Accordion
-                key={index}
-                className={index === faqData.length - 1 ? "AccordionQuestionLast" : "AccordionQuestion"}
-                expanded={expanded[index]}
-                onChange={() => handleAccordionChange(index)}
-                style={expanded[index] ? { paddingBottom: 24, marginBottom: index === faqData.length - 1 ? 0 : 12 } : { paddingBottom: 12, marginBottom: index === faqData.length - 1 ? 0 : 12 }}
-              >
-                <AccordionSummary
-                  expandIcon={faIcons[index]}
-                  aria-controls={`panel${index + 1}a-content`}
-                  id={`panel-header`}
-                  style={{ padding: 0 }}
+              <AnimatedElement className="animated-element animated-element-delay-100ms" threshold='.8'>
+                <Accordion
+                  key={index}
+                  className={index === faqData.length - 1 ? "AccordionQuestionLast" : "AccordionQuestion"}
+                  expanded={expanded[index]}
+                  onChange={() => handleAccordionChange(index)}
+                  style={expanded[index] ? { paddingBottom: 24, marginBottom: index === faqData.length - 1 ? 0 : 12 } : { paddingBottom: 12, marginBottom: index === faqData.length - 1 ? 0 : 12 }}
                 >
-                  <p className="Question">
-                    {faq.question}
-                  </p>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <p className="Answer">
-                    {faq.answer}
-                  </p>
-                </AccordionDetails>
-              </Accordion>
-                </AnimatedElement>
+                  <AccordionSummary
+                    expandIcon={faIcons[index]}
+                    aria-controls={`panel${index + 1}a-content`}
+                    id={`panel-header`}
+                    style={{ padding: 0 }}
+                  >
+                    <p className="Question">
+                      {faq.question}
+                    </p>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <p className="Answer">
+                      {faq.answer}
+                    </p>
+                  </AccordionDetails>
+                </Accordion>
+              </AnimatedElement>
             ))}
           </div>
       </Grid>

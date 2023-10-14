@@ -41,11 +41,11 @@ function Header() {
     maxWidth: '1120px',
   };
 
-  const [offset, setOffset] = useState(70);
-
-    useEffect(() => {
-        return handleOffsetChange(setOffset);
-    }, []);
+  // const [offset, setOffset] = useState(70);
+  //
+  //   useEffect(() => {
+  //       return handleOffsetChange(setOffset);
+  //   }, []);
 
   return (
     <div>
@@ -65,7 +65,7 @@ function Header() {
                     to="about-us"
                     spy={true}
                     smooth={true}
-                    offset={offset}
+                    offset={-90}
                     duration={500}
                   >
                     <Button
