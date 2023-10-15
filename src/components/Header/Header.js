@@ -3,10 +3,10 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import '../styles_components/style_header.scss';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import AnimatedElement from "../AnimatedElementOnce";
-import HeaderButton from "./Components/HeaderButton";
-import Logo from "./Components/Logo";
-import GetStartedButton from "./Components/Buttons/GetStartedButton";
+import AnimatedElement from "../Animation/AnimatedElementOnce";
+import HeaderButton from "./Buttons/HeaderButton";
+import Logo from "./Buttons/Logo";
+import GetStartedButton from "../LandingPage/Components/Header/Buttons/GetStartedButton";
 import {useLocation} from "react-router-dom";
 
 function Header() {

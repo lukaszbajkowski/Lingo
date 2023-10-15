@@ -1,9 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LandingPage from "./components/LandingPage";
-import Blog from "./components/Blog"
-
-const Contact = () => <div>Kontakt</div>;
+import LandingPage from "./components/LandingPage/LandingPage";
+import Blog from "./components/Blog/Blog"
 
 function App() {
     return (
@@ -11,7 +9,6 @@ function App() {
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/blog" element={<Blog />} />
-                <Route path="/contact" element={<Contact />} />
             </Routes>
         </Router>
     );
