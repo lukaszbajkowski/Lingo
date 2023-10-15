@@ -20,13 +20,9 @@ function CTA() {
                     </p>
                 </AnimatedElement>
                 <AnimatedElement className="animated-element animated-element-delay-300ms">
-                    {/*<Button variant="contained" color="primary" component={RouterLink} className="ButtonHero" to="/blog">*/}
-                    {/*    Zacznij już*/}
-                    {/*</Button>*/}
-                    <Button variant="contained" color="primary" component={RouterLink} to="/blog" className="ButtonHero">
+                    <Button variant="contained" color="primary" component={RouterLink} className="ButtonHero" to="/start">
                         Zacznij już
                     </Button>
-
                 </AnimatedElement>
             </Grid>
             <Grid item xs={12} sm={12} md={6} style={{paddingLeft: 0, paddingTop:0}}>

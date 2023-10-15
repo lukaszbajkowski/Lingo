@@ -66,23 +66,9 @@ function Footer() {
                             </Link>
                         </Grid>
                         <Grid item style={{ paddingLeft: 0 }}>
-                            <Link
-                                className="stylebutton"
-                                activeClass="active"
-                                to="pricing"
-                                spy={true}
-                                smooth={true}
-                                offset={-90}
-                                duration={500}
-                            >
-                                <Button
-                                    variant="text"
-                                    color="inherit"
-                                    className="column-button"
-                                >
-                                    Blog
-                                </Button>
-                            </Link>
+                            <Button variant="text" color="inherit" component={RouterLink} className="column-button" to="/blog">
+                                Blog
+                            </Button>
                         </Grid>
                     </Grid>
                 </AnimatedElement>

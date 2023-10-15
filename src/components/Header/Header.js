@@ -1,16 +1,18 @@
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import {Link as RouterLink} from 'react-router-dom';
-import logo from '../images/logo-no-background.png';
 import '../styles_components/style_header.scss';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import {Link} from 'react-scroll';
 import AnimatedElement from "../AnimatedElementOnce";
-import HeaderButton from "./HeaderButton";
+import HeaderButton from "./Components/HeaderButton";
+import Logo from "./Components/Logo";
+import GetStartedButton from "./Components/Buttons/GetStartedButton";
+import {Link as RouterLink, useLocation} from "react-router-dom";
+import Button from "@mui/material/Button";
 
 function Header() {
+    const location = useLocation();
+
     const isLargeScreen = useMediaQuery('(min-width:1200px)');
     const is600Screen = useMediaQuery('(max-width:600px)');
 
@@ -40,27 +42,18 @@ function Header() {
             <AppBar position="sticky" style={navbarStyle}>
                 <Toolbar style={toolbarStyle}>
                     <AnimatedElement className="animated-element-header animated-element-header-delay-100ms">
-                        <RouterLink to="/">
-                            <img src={logo} alt="Logo" className="App-logo"/>
-                        </RouterLink>
+                        <Logo/>
                     </AnimatedElement>
                     <HeaderButton/>
-                    <AnimatedElement className="animated-element-header animated-element-header-delay-600ms">
-                        <Link
-                            className="stylebutton"
-                            activeClass="active"
-                            to="pricing"
-                            spy={true}
-                            smooth={true}
-                            offset={-90}
-                            duration={500}
-                        >
-                            <Button variant="contained" color="primary" component={RouterLink}
-                                    className="ButtonGetStarted" to="/start">
-                                Rozpocznij
-                            </Button>
-                        </Link>
-                    </AnimatedElement>
+                    {location.pathname === "/" ? (
+                        <AnimatedElement className="animated-element-header animated-element-header-delay-600ms">
+                            <GetStartedButton/>
+                        </AnimatedElement>
+                    ) : (
+                        <AnimatedElement className="animated-element-header animated-element-header-delay-200ms">
+                            <GetStartedButton/>
+                        </AnimatedElement>
+                    )}
                 </Toolbar>
             </AppBar>
         </div>
