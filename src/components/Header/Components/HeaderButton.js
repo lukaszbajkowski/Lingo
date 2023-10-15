@@ -1,13 +1,11 @@
 import {Grid} from "@mui/material";
 import AnimatedElement from "../../AnimatedElementOnce";
-import {Link} from "react-scroll";
-import Button from "@mui/material/Button";
 import React from "react";
 import { useLocation } from "react-router-dom";
-import AboutUsButton from "./Buttons/AboutUsButton";
-import HowItWorksButton from "./Buttons/HowItWorksButton";
-import PricingButton from "./Buttons/PricingButton";
-import FAQsButton from "./Buttons/FAQsButton";
+import AboutUsButton from "./Buttons/LandingPage/AboutUsButton";
+import HowItWorksButton from "./Buttons/LandingPage/HowItWorksButton";
+import PricingButton from "./Buttons/LandingPage/PricingButton";
+import FAQsButton from "./Buttons/LandingPage/FAQsButton";
 
 function HeaderButton() {
     const location = useLocation();

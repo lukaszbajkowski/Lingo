@@ -7,8 +7,7 @@ import AnimatedElement from "../AnimatedElementOnce";
 import HeaderButton from "./Components/HeaderButton";
 import Logo from "./Components/Logo";
 import GetStartedButton from "./Components/Buttons/GetStartedButton";
-import {Link as RouterLink, useLocation} from "react-router-dom";
-import Button from "@mui/material/Button";
+import {useLocation} from "react-router-dom";
 
 function Header() {
     const location = useLocation();

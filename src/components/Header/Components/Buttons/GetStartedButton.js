@@ -1,7 +1,8 @@
-import Button from "@mui/material/Button";
-import {Link as RouterLink, useLocation} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import {Link} from "react-scroll";
 import React from "react";
+import GetStartedButtonLandingPage from "./LandingPage/GetStartedButtonLandingPage";
+import GetStartedButtonBlog from "./Blog/GetStartedButtonBlog";
 
 function GetStartedButton() {
     const location = useLocation();
@@ -17,25 +18,9 @@ function GetStartedButton() {
             duration={500}
         >
             {location.pathname === "/" ? (
-                <Button
-                    variant="contained"
-                    color="primary"
-                    component={RouterLink}
-                    className="ButtonGetStarted"
-                    to="/start"
-                >
-                    Rozpocznij
-                </Button>
+                <GetStartedButtonLandingPage/>
             ) : (
-                <Button
-                    variant="contained"
-                    color="primary"
-                    component={RouterLink}
-                    className="ButtonGetStarted"
-                    to="/blog/categories"
-                >
-                    Kategorie
-                </Button>
+                <GetStartedButtonBlog/>
             )}
         </Link>
     )
