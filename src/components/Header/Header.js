@@ -40,16 +40,22 @@ function Header() {
         <div>
             <AppBar position="sticky" style={navbarStyle}>
                 <Toolbar style={toolbarStyle}>
-                    <AnimatedElement className="animated-element-header animated-element-header-delay-100ms">
-                        <Logo/>
-                    </AnimatedElement>
+                    {location.pathname === "/" ? (
+                        <AnimatedElement className="animated-element-header animated-element-header-delay-100ms">
+                            <Logo/>
+                        </AnimatedElement>
+                    ) : (
+                        <AnimatedElement className="animated-element-header animated-element animated-element-delay-200ms">
+                            <Logo/>
+                        </AnimatedElement>
+                    )}
                     <HeaderButton/>
                     {location.pathname === "/" ? (
                         <AnimatedElement className="animated-element-header animated-element-header-delay-600ms">
                             <GetStartedButton/>
                         </AnimatedElement>
                     ) : (
-                        <AnimatedElement className="animated-element-header animated-element-header-delay-200ms">
+                        <AnimatedElement className="animated-element-header animated-element animated-element-delay-300ms">
                             <GetStartedButton/>
                         </AnimatedElement>
                     )}

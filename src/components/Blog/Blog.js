@@ -42,7 +42,7 @@ function Blog() {
                     <CssBaseline />
                     <Header/>
                     <Content/>
-                    <Features/>
+                    <Content/>
                 </Box>
             </Container>
             <Container maxWidth="lg" className="Container" style={{padding: 0}}>
@@ -50,7 +50,6 @@ function Blog() {
                     <Footer/>
                 </Box>
             </Container>
-            <LoadingScreen />
         </ThemeProvider>
     );
 }
