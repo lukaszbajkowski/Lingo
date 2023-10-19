@@ -42,7 +42,6 @@ function Blog() {
                     <CssBaseline />
                     <Header/>
                     <Content/>
-                    <Content/>
                 </Box>
             </Container>
             <Container maxWidth="lg" className="Container" style={{padding: 0}}>

@@ -8,21 +8,13 @@ function GetStartedButton() {
     const location = useLocation();
 
     return (
-        <Link
-            className="stylebutton"
-            activeClass="active"
-            to="pricing"
-            spy={true}
-            smooth={true}
-            offset={-90}
-            duration={500}
-        >
+        <span>
             {location.pathname === "/" ? (
                 <GetStartedButtonLandingPage/>
             ) : (
                 <GetStartedButtonBlog/>
             )}
-        </Link>
+        </span>
     )
 }
 

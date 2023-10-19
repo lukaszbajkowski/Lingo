@@ -5,22 +5,22 @@ const Post = new mongoose.model('Post' ,{
     type: String,
     required: true,
   },
-  content: {
+  body: {
     type: String,
     required: true,
   },
-  author: {
-    type: String,
-    required: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-  updatedAt: {
-    type: Date,
-    default: Date.now,
-  },
+  // author: {
+  //   type: String,
+  //   required: true,
+  // },
+  // createdAt: {
+  //   type: Date,
+  //   default: Date.now,
+  // },
+  // updatedAt: {
+  //   type: Date,
+  //   default: Date.now,
+  // },
 });
 
 module.exports = Post;

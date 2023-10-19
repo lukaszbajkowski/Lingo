@@ -4,61 +4,116 @@ import {Grid, Typography} from "@mui/material";
 import '../../styles_components/style_content.scss';
 import {Link as RouterLink} from "react-router-dom";
 import Button from "@mui/material/Button";
+import Note from "./Note";
+import NewNote from "./NewNote";
+import Modal from "react-modal";
+import EditNote from "./EditNote";
+import axios from "axios";
 
-function Content() {
-    return (
-        <AnimatedElement className={`animated-element animated-element-delay-100ms`}>
-            <Grid container>
-                <Grid item xs={12} sm={12} md={6}>
-                    <RouterLink
-                        to="/"
+class Content extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            notes: [
+                {
+                    id: '2323',
+                    title: 'Podzielić ten kod na elementy tak jak jest to zrobione na laptopie. Chyba trzeba to zrobić' +
+                        'tylko z notatką. Na sam koniec spróbować ze zmiana nazw zmiennych',
+                    body: 'I tyle, bo po co więcej'
+                },
+                {
+                    id: '1212',
+                    title: 'Nakarmić kota',
+                    body: 'Podrobami chyba najlepiej'
+                }
+            ],
+
+            editNote: {},
+            showEditModal: false
+        }
+    }
+
+    componentDidMount() {
+        this.fetchNotes();
+    }
+
+    async fetchNotes() {
+        const res = await axios.get('http://localhost:3001/api/posts');
+        console.log(res);
+    }
+
+    deleteNote(id) {
+        console.log('usuwanie notatki', id)
+        const notes = [...this.state.notes]
+            .filter(note => note.id !== id);
+        this.setState({ notes });
+    }
+
+    addNote(note) {
+        const notes = [...this.state.notes];
+        notes.push(note);
+        console.log(note.id);
+        this.setState({notes});
+    }
+
+    editNote(note) {
+        const notes = [...this.state.notes];
+        const index = notes.findIndex(x => x.id === note.id);
+        if (index >= 0) {
+            notes[index] = note;
+            this.setState({notes});
+        }
+        this.toggleModal();
+    }
+
+    toggleModal() {
+        this.setState({showEditModal: !this.state.showEditModal});
+    }
+
+    editNoteHandler(note) {
+        this.toggleModal();
+        this.setState({ editNote: note });
+    }
+
+    render() {
+
+        return (
+            <div>
+                <NewNote
+                    onAdd={(note) => this.addNote(note)}
+                />
+
+                <Modal
+                    isOpen={this.state.showEditModal}
+                    contentLabel={'Edytuj notatkę'}
+                >
+                    <EditNote
+                        title={this.state.editNote.title}
+                        body={this.state.editNote.body}
+                        id={this.state.editNote.id}
+                        onEdit={note => this.editNote(note)}
+                    />
+                    <button
+                        onClick={() => this.toggleModal()}
                     >
-                        <div className={`Content`}></div>
-                    </RouterLink>
-                </Grid>
-                <Grid item xs={12} sm={12} md={6}>
-                    <Grid item xs={12} className={`Position`}>
-                        <AnimatedElement className={`animated-element animated-element-delay-200ms`}>
-                            <Button
-                                variant="outlined"
-                                color="primary"
-                                component={RouterLink}
-                                className="CategoryButton"
-                                // to="/blog/categories/:id"
-                            >
-                                Duis mollis
-                            </Button>
-                        </AnimatedElement>
-                        <AnimatedElement className={`animated-element animated-element-delay-300ms`}>
-                            <RouterLink
-                                to="/"
-                                className={`HoverFont`}
-                            >
-                                <Typography variant='h4' gutterBottom  className={`Font`}>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                </Typography>
-                            </RouterLink>
-                        </AnimatedElement>
-                        <AnimatedElement className={`animated-element animated-element-delay-400ms`}>
-                            <RouterLink
-                                to="/"
-                                className={`HoverFont`}
-                            >
-                                <Typography variant='body1' gutterBottom className={`Font`}>
-                                    Suspendisse a sollicitudin urna, vitae auctor nulla.
-                                    Quisque eu sem eu velit vulputate tristique vel et enim.
-                                    Vestibulum ligula nibh, ornare in ipsum rutrum, bibendum hendrerit enim.
-                                    Suspendisse pulvinar vulputate nisi nec tincidunt.
-                                    Duis at ante commodo, placerat velit scelerisque, efficitur ex.
-                                    Aenean eget imperdiet felis. Aenean et tempor felis.
-                                </Typography>
-                            </RouterLink>
-                        </AnimatedElement>
-                    </Grid>
-                </Grid>
-            </Grid>
-        </AnimatedElement>
-    )
+                        Anuluj
+                    </button>
+                </Modal>
+
+                {this.state.notes.map(note => (
+                    <Note
+                        key={note.id}
+                        title={note.title}
+                        body={note.body}
+                        id={note.id}
+                        onEdit={(note) => this.editNoteHandler(note)}
+                        onDelete={(id) => this.deleteNote(id)}
+                    />
+                ))}
+            </div>
+        );
+    }
 }
 
 export default Content;

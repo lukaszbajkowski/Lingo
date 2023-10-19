@@ -3,17 +3,17 @@ const Post = require('../../db/models/Post');
 class PostActions {
     async savePost(req, res) {
         try {
-            const { title, content, author } = req.body;
+            const { title, body } = req.body;
 
             let newPost;
 
             try {
                 newPost = new Post({
                     title,
-                    content,
-                    author,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
+                    body,
+                    // author,
+                    // createdAt: new Date(),
+                    // updatedAt: new Date(),
                 });
                 await newPost.save();
             } catch (err) {
