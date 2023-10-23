@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import '../../../styles_components/style_about_us.scss';
 import AnimatedElement from '../../../Animation/AnimatedElement';
 import AnimatedElementLoading from '../../../Animation/AnimatedElementOnce';
-import Image1 from "../../../images/Notes-bro.svg";
-import Image2 from "../../../images/Hand-coding-amico.svg"
-import Image3 from "../../../images/Files-sent-rafiki.svg"
+import Image1 from "../../../Images/Notes-bro.svg";
+import Image2 from "../../../Images/Hand-coding-amico.svg"
+import Image3 from "../../../Images/Files-sent-rafiki.svg"
 import {Col, Container, Row} from "react-bootstrap";
 
 

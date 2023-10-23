@@ -1,4 +1,4 @@
-import logo from "../../images/logo-no-background.png";
+import logo from "../../Images/logo-no-background.png";
 import {Link as RouterLink} from "react-router-dom";
 import React from "react";
 

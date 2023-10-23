@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../styles_components/style_loader.scss';
-import logo from "../images/logo-white-no-background.png";
+import logo from "../Images/logo-white-no-background.png";
 
 class LoadingScreen extends Component {
   state = {

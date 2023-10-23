@@ -1,5 +1,5 @@
 import React from 'react';
-import SideImage from '../../images/Telework-pana.svg';
+import SideImage from '../../Images/Telework-pana.svg';
 import '../../styles_components/style_cta.scss';
 import {Link as RouterLink} from "react-router-dom";
 import Button from "@mui/material/Button";

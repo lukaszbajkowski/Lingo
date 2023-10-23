@@ -1,5 +1,5 @@
 import React from 'react';
-import SideImage from '../../images/Translator-amico.svg';
+import SideImage from '../../Images/Translator-amico.svg';
 import '../../styles_components/style_header.scss';
 import '../../styles_components/style_cta.scss'
 import {Link as RouterLink} from "react-router-dom";

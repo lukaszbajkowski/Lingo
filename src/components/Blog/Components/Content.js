@@ -1,33 +1,17 @@
-import AnimatedElement from "../../Animation/AnimatedElementOnce";
 import React from "react";
-import {Grid, Typography} from "@mui/material";
 import '../../styles_components/style_content.scss';
-import {Link as RouterLink} from "react-router-dom";
-import Button from "@mui/material/Button";
 import Note from "./Note";
-import NewNote from "./NewNote";
+import NewPost from "./AddPost/NewPost";
 import Modal from "react-modal";
-import EditNote from "./EditNote";
-import axios from "axios";
+import EditNote from "./EditPost/EditNote";
+import axios from "../../../axios";
 
 class Content extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            notes: [
-                {
-                    id: '2323',
-                    title: 'Podzielić ten kod na elementy tak jak jest to zrobione na laptopie. Chyba trzeba to zrobić' +
-                        'tylko z notatką. Na sam koniec spróbować ze zmiana nazw zmiennych',
-                    body: 'I tyle, bo po co więcej'
-                },
-                {
-                    id: '1212',
-                    title: 'Nakarmić kota',
-                    body: 'Podrobami chyba najlepiej'
-                }
-            ],
+            notes: [],
 
             editNote: {},
             showEditModal: false
@@ -39,27 +23,38 @@ class Content extends React.Component {
     }
 
     async fetchNotes() {
-        const res = await axios.get('http://localhost:3001/api/posts');
-        console.log(res);
-    }
-
-    deleteNote(id) {
-        console.log('usuwanie notatki', id)
-        const notes = [...this.state.notes]
-            .filter(note => note.id !== id);
+        const res = await axios.get('/posts');
+        const notes = res.data;
         this.setState({ notes });
     }
 
-    addNote(note) {
+    async deleteNote(id) {
+        const notes = [...this.state.notes]
+            .filter(note => note._id !== id);
+
+        await axios.delete(`/posts/` + id);
+        this.setState({ notes });
+    }
+
+    async addNote(note) {
         const notes = [...this.state.notes];
-        notes.push(note);
-        console.log(note.id);
+
+        // add to backend
+        const res = await axios.post('/posts', note)
+        const newNote = res.data;
+
+        // add to frontend
+        notes.push(newNote);
         this.setState({notes});
     }
 
-    editNote(note) {
+     async editNote(note) {
+        // edit backend
+        await axios.put(`/posts/` + note._id, note);
+
+        // edit frontend
         const notes = [...this.state.notes];
-        const index = notes.findIndex(x => x.id === note.id);
+        const index = notes.findIndex(x => x._id === note._id);
         if (index >= 0) {
             notes[index] = note;
             this.setState({notes});
@@ -77,10 +72,10 @@ class Content extends React.Component {
     }
 
     render() {
-
         return (
             <div>
-                <NewNote
+
+                <NewPost
                     onAdd={(note) => this.addNote(note)}
                 />
 
@@ -91,7 +86,7 @@ class Content extends React.Component {
                     <EditNote
                         title={this.state.editNote.title}
                         body={this.state.editNote.body}
-                        id={this.state.editNote.id}
+                        id={this.state.editNote._id}
                         onEdit={note => this.editNote(note)}
                     />
                     <button
@@ -103,10 +98,10 @@ class Content extends React.Component {
 
                 {this.state.notes.map(note => (
                     <Note
-                        key={note.id}
+                        key={note._id}
                         title={note.title}
                         body={note.body}
-                        id={note.id}
+                        id={note._id}
                         onEdit={(note) => this.editNoteHandler(note)}
                         onDelete={(id) => this.deleteNote(id)}
                     />

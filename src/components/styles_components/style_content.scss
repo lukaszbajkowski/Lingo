@@ -1,5 +1,5 @@
 .Content {
-  background: url("../../components/background/young-man-learning-virtual-classroom.jpg") no-repeat center center fixed;
+  background: url("../Background/young-man-learning-virtual-classroom.jpg") no-repeat center center fixed;
   background-size: cover;
   filter: brightness(0.8);
   border-radius: 16px;
@@ -9,12 +9,13 @@
   height: 33.33vh;
 
   @media (max-width: 900px) {
-    padding: 32px 24px;
+    padding: 32px 28px;
+    border-radius: 48px;
     margin-bottom: 0 !important;
   }
 }
 
-.Font {
+.Font, .FontTitleModal {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   color: rgb(34, 62, 32);
 }
@@ -25,6 +26,10 @@
   }
 }
 
+.FontTitleModal {
+  font-weight: 400 !important;
+}
+
 .Position {
   margin: 86px 24px 0 !important;
 
@@ -33,10 +38,36 @@
   }
 }
 
-.CategoryButton {
+.ModalContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 66.66%;
+}
+
+.InputTitleContainer {
+  margin-top: 8px;
+}
+
+.ButtonContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.CategoryButton, .CancelAddPostButton, .AddPostButton {
   border-radius: 12px !important;
   text-transform: none !important;
   font-family: 'Plus Jakarta Sans', sans-serif !important;
-  margin-bottom: 8px !important;
 }
 
+.CancelAddPostButton, .AddPostButton {
+  margin-left: 4px !important;
+  margin-right: 4px !important;
+}
+
+.CategoryButton {
+  margin-bottom: 8px !important;
+}
