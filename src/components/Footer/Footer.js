@@ -8,7 +8,7 @@ import AboutUsButton from "../LandingPage/Components/Header/Buttons/AboutUsButto
 import HowItWorksButton from "../LandingPage/Components/Header/Buttons/HowItWorksButton";
 import Logo from "../Header/Buttons/Logo";
 
-function Footer() {
+function Footer () {
     return (
         <Grid container spacing={2} className="Footer">
             <Grid item xs={12} style={{paddingLeft: 0, paddingTop: 0, marginTop: 'auto', marginBottom: 'auto',}}>
@@ -27,8 +27,9 @@ function Footer() {
                             {/*Button from header*/}
                             <HowItWorksButton/>
                         </Grid>
-                        <Grid item style={{ paddingLeft: 0 }}>
-                            <Button variant="text" color="inherit" component={RouterLink} className="column-button" to="/blog">
+                        <Grid item style={{paddingLeft: 0}}>
+                            <Button variant="text" color="inherit" component={RouterLink} className="column-button"
+                                    to="/blog">
                                 Blog
                             </Button>
                         </Grid>

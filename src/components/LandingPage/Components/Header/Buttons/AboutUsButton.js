@@ -2,7 +2,7 @@ import Button from "@mui/material/Button";
 import {Link} from "react-scroll";
 import React from "react";
 
-function AboutUsButton() {
+function AboutUsButton () {
     return (
         <Link
             activeClass="active"

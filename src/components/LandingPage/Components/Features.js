@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Grid } from "@mui/material";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {Container, Grid} from "@mui/material";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import '../../styles_components/style_features.scss';
 import AnimatedElement from "../../Animation/AnimatedElementOnce";
 
@@ -37,20 +37,21 @@ const featuresData = [
     },
 ];
 
-function FeatureItem({ icon, title, description }) {
+function FeatureItem ({icon, title, description}) {
     return (
         <AnimatedElement className="animated-element animated-element-delay-100ms">
-            <FontAwesomeIcon icon={icon} className="fa-icon" />
+            <FontAwesomeIcon icon={icon} className="fa-icon"/>
             <h1>{title}</h1>
             <h5>{description}</h5>
         </AnimatedElement>
     );
 }
 
-function Features() {
+function Features () {
     return (
         <Container className="FeaturesContainer">
-            <Grid container columnSpacing={{ xs: 2, sm: 8, md: 12 }} rowSpacing={{ xs: 3, sm: 6, md: 8 }} className="FeaturesGrid">
+            <Grid container columnSpacing={{xs: 2, sm: 8, md: 12}} rowSpacing={{xs: 3, sm: 6, md: 8}}
+                  className="FeaturesGrid">
                 {featuresData.map((feature, index) => (
                     <Grid item xs={12} md={6} className="FeaturesItem" key={index}>
                         <FeatureItem

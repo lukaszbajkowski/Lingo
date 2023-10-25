@@ -1,9 +1,9 @@
 const Post = require('../../db/models/Post');
 
 class PostActions {
-    async savePost(req, res) {
+    async savePost (req, res) {
         try {
-            const { title, body } = req.body;
+            const {title, body} = req.body;
 
             let newPost;
 
@@ -29,39 +29,39 @@ class PostActions {
 
     }
 
-    async getPosts(req, res) {
+    async getPosts (req, res) {
         let posts;
 
         try {
             posts = await Post.find({});
         } catch (error) {
             console.error('Błąd podczas pobierania postów:', error);
-            return res.status(500).json({ message: "Wystąpił błąd podczas pobierania postów" });
+            return res.status(500).json({message: "Wystąpił błąd podczas pobierania postów"});
         }
         res.status(200).json(posts);
     }
 
-    async getPost(req, res) {
+    async getPost (req, res) {
         const id = req.params.id;
-        const post = await Post.findOne({ _id: id });
+        const post = await Post.findOne({_id: id});
 
         res.status(200).json(post);
 
     }
 
-    async updatePost(req, res) {
+    async updatePost (req, res) {
         const id = req.params.id;
-        const { title, content, author } = req.body;
+        const {title, body, author} = req.body;
 
-        const post = await Post.findOneAndUpdate({ _id: id }, { title, content, author, updatedAt: new Date() });
+        const post = await Post.findOneAndUpdate({_id: id}, {title, body, author, updatedAt: new Date()});
         await post.save();
 
         res.status(201).json(post);
     }
 
-    async deletePost(req, res) {
+    async deletePost (req, res) {
         const id = req.params.id;
-        await Post.findOneAndDelete({ _id: id });
+        await Post.findOneAndDelete({_id: id});
         res.sendStatus(204);
     }
 }

@@ -10,7 +10,7 @@
   padding-inline: 72px;
 
   @media (max-width: 800px) {
-    padding-top: 32px ;
+    padding-top: 32px;
     padding-inline: 16px;
   }
 }
@@ -20,7 +20,7 @@
   padding-inline: 72px;
 
   @media (max-width: 800px) {
-    padding-top: 32px ;
+    padding-top: 32px;
     padding-inline: 16px;
   }
 
@@ -47,12 +47,12 @@
 .PricingItemGap {
   position: relative;
 
-  @media (min-width:600px) {
-    flex-basis: calc(50% - calc(24px/2)) !important;
+  @media (min-width: 600px) {
+    flex-basis: calc(50% - calc(24px / 2)) !important;
   }
 
-  @media (min-width:1200px) {
-    flex-basis: calc(33.333333% - calc(48px/3)) !important;
+  @media (min-width: 1200px) {
+    flex-basis: calc(33.333333% - calc(48px / 3)) !important;
   }
 }
 
@@ -167,11 +167,11 @@
   font-weight: 700;
 
   @media (max-width: 650px) {
-      font-size: 14px;
+    font-size: 14px;
   }
 
   @media (max-width: 600px) {
-      font-size: 18px;
+    font-size: 18px;
   }
 }
 
@@ -191,7 +191,7 @@
   text-align: center;
 
   @media (min-width: 1200px) {
-      font-size: 8px;
+    font-size: 8px;
   }
 }
 
@@ -199,15 +199,15 @@
   margin-left: 12px;
 
   @media (min-width: 600px) {
-      font-size: 12px;
+    font-size: 12px;
   }
 
   @media (min-width: 700px) {
-      font-size: 16px;
+    font-size: 16px;
   }
 
   @media (min-width: 1200px) {
-      font-size: 14px;
+    font-size: 14px;
   }
 }
 

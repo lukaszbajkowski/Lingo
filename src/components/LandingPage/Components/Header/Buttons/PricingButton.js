@@ -2,7 +2,7 @@ import {Link} from "react-scroll";
 import Button from "@mui/material/Button";
 import React from "react";
 
-function PricingButton() {
+function PricingButton () {
     return (
         <Link
             className="stylebutton"

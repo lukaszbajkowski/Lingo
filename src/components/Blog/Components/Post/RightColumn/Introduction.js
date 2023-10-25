@@ -3,7 +3,7 @@ import {Link as RouterLink} from "react-router-dom";
 import React from "react";
 import '../../../../styles_components/style_content.scss'
 
-function Introduction(props) {
+function Introduction (props) {
     return (
         <RouterLink
             // to="/"

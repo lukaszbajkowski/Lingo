@@ -9,7 +9,7 @@ import Logo from "./Buttons/Logo";
 import GetStartedButton from "../LandingPage/Components/Header/Buttons/GetStartedButton";
 import {useLocation} from "react-router-dom";
 
-function Header() {
+function Header () {
     const location = useLocation();
 
     const isLargeScreen = useMediaQuery('(min-width:1200px)');
@@ -45,7 +45,8 @@ function Header() {
                             <Logo/>
                         </AnimatedElement>
                     ) : (
-                        <AnimatedElement className="animated-element-header animated-element animated-element-delay-200ms">
+                        <AnimatedElement
+                            className="animated-element-header animated-element animated-element-delay-200ms">
                             <Logo/>
                         </AnimatedElement>
                     )}
@@ -55,7 +56,8 @@ function Header() {
                             <GetStartedButton/>
                         </AnimatedElement>
                     ) : (
-                        <AnimatedElement className="animated-element-header animated-element animated-element-delay-300ms">
+                        <AnimatedElement
+                            className="animated-element-header animated-element animated-element-delay-300ms">
                             <GetStartedButton/>
                         </AnimatedElement>
                     )}

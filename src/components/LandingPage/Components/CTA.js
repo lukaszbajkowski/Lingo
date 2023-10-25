@@ -5,7 +5,8 @@ import {Link as RouterLink} from "react-router-dom";
 import Button from "@mui/material/Button";
 import {Grid} from "@mui/material";
 import AnimatedElement from '../../Animation/AnimatedElementOnce';
-function CTA() {
+
+function CTA () {
     return (
         <Grid container spacing={2} className="CTA">
             <Grid item xs={12} sm={12} md={6} className="CTAGrid">
@@ -16,18 +17,20 @@ function CTA() {
                 </AnimatedElement>
                 <AnimatedElement className="animated-element animated-element-delay-200ms">
                     <p className="Paragraph">
-                        Wyobraź sobie, że możesz osiągnąć nadzwyczajny sukces dzięki niezawodnym tłumaczeniom. Odkryj potencjał językowej precyzji i skuteczności z nami już teraz.
+                        Wyobraź sobie, że możesz osiągnąć nadzwyczajny sukces dzięki niezawodnym tłumaczeniom. Odkryj
+                        potencjał językowej precyzji i skuteczności z nami już teraz.
                     </p>
                 </AnimatedElement>
                 <AnimatedElement className="animated-element animated-element-delay-300ms">
-                    <Button variant="contained" color="primary" component={RouterLink} className="ButtonHero" to="/start">
+                    <Button variant="contained" color="primary" component={RouterLink} className="ButtonHero"
+                            to="/start">
                         Zacznij już
                     </Button>
                 </AnimatedElement>
             </Grid>
-            <Grid item xs={12} sm={12} md={6} style={{paddingLeft: 0, paddingTop:0}}>
+            <Grid item xs={12} sm={12} md={6} style={{paddingLeft: 0, paddingTop: 0}}>
                 <AnimatedElement className="animated-element-image animated-element-delay-200ms">
-                    <img src={SideImage} alt="SideImageCTA" className="SideImageCTA" />
+                    <img src={SideImage} alt="SideImageCTA" className="SideImageCTA"/>
                 </AnimatedElement>
             </Grid>
         </Grid>

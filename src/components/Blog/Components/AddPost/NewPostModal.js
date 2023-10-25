@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Container, Paper, Box } from '@mui/material';
+import {Box, Container, Modal, Paper} from '@mui/material';
 import Title from "./ModalElement/Input/Title";
 import Desc from "./ModalElement/Input/Desc";
 import CloseButton from "./ModalElement/Buttons/CloseButton";
@@ -8,15 +8,11 @@ import CancelButton from "./ModalElement/Buttons/CancelButton";
 import AddButton from "./ModalElement/Buttons/AddButton";
 
 const ModalStyle = {
-    bgcolor: 'background.paper',
-    boxShadow: 24,
-    p: 4,
-    borderRadius: 3,
+    bgcolor: 'background.paper', boxShadow: 24, p: 4, borderRadius: 3,
 };
 
-function NewPostModal(props) {
-    return (
-        <Modal
+function NewPostModal (props) {
+    return (<Modal
             open={props.open}
             onClose={props.onClose}
         >
@@ -30,7 +26,7 @@ function NewPostModal(props) {
                         display="flex"
                         alignItems="center"
                     >
-                        <ModalTitle />
+                        <ModalTitle/>
                         <Box>
                             <CloseButton
                                 onClick={props.onClose}
@@ -62,8 +58,7 @@ function NewPostModal(props) {
                     </Box>
                 </Paper>
             </Container>
-        </Modal>
-    );
+        </Modal>);
 }
 
 export default NewPostModal;

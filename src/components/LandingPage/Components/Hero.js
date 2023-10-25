@@ -8,7 +8,7 @@ import {Grid} from "@mui/material";
 import AnimatedElement from '../../Animation/AnimatedElementOnce';
 import {Link} from "react-scroll";
 
-function Hero() {
+function Hero () {
     return (
         <Grid container spacing={2} className="Hero">
             <Grid item xs={12} sm={12} md={6} className="HeroGrid">
@@ -32,15 +32,16 @@ function Hero() {
                         offset={-90}
                         duration={500}
                     >
-                        <Button variant="contained" color="primary" component={RouterLink} className="ButtonHero" to="/start">
+                        <Button variant="contained" color="primary" component={RouterLink} className="ButtonHero"
+                                to="/start">
                             Zacznij już
                         </Button>
                     </Link>
                 </AnimatedElement>
             </Grid>
-            <Grid item xs={12} sm={12} md={6} style={{paddingLeft: 0, paddingTop:0}}>
+            <Grid item xs={12} sm={12} md={6} style={{paddingLeft: 0, paddingTop: 0}}>
                 <AnimatedElement className="animated-element-hero-image animated-element-hero-delay-100ms">
-                    <img src={SideImage} alt="SideImage" className="SideImage" />
+                    <img src={SideImage} alt="SideImage" className="SideImage"/>
                 </AnimatedElement>
             </Grid>
         </Grid>

@@ -5,15 +5,22 @@ import '../styles_components/style_animations.scss';
 import Header from '../Header/Header';
 import Footer from "../Footer/Footer";
 import Content from "./Components/Content";
-import LoadingScreen from "../Loader/Loader";
 
 import {Box, Container, CssBaseline, ThemeProvider} from "@mui/material";
-import { createTheme } from '@mui/material/styles';
+import {createTheme} from '@mui/material/styles';
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelopeOpen, faFile, faListCheck, faChartPie, faPersonDigging, faChartLine, faStar, faPlus } from '@fortawesome/free-solid-svg-icons'
-import Features from "../LandingPage/Components/Features";
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {fab} from '@fortawesome/free-brands-svg-icons'
+import {
+    faChartLine,
+    faChartPie,
+    faEnvelopeOpen,
+    faFile,
+    faListCheck,
+    faPersonDigging,
+    faPlus,
+    faStar
+} from '@fortawesome/free-solid-svg-icons'
 
 library.add(fab, faEnvelopeOpen, faFile, faListCheck, faChartPie, faPersonDigging, faChartLine, faStar, faPlus)
 
@@ -34,18 +41,18 @@ const theme = createTheme({
     },
 });
 
-function Blog() {
+function Blog () {
     return (
         <ThemeProvider theme={theme}>
             <Container maxWidth="lg" className="Container">
-                <Box sx={{ height: 'auto', mx: 2, }} >
-                    <CssBaseline />
+                <Box sx={{height: 'auto', mx: 2,}}>
+                    <CssBaseline/>
                     <Header/>
                     <Content/>
                 </Box>
             </Container>
             <Container maxWidth="lg" className="Container" style={{padding: 0}}>
-                <Box sx={{ height: 'auto', mx: 2, }} >
+                <Box sx={{height: 'auto', mx: 2,}}>
                     <Footer/>
                 </Box>
             </Container>

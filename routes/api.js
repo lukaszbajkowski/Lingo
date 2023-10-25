@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const postActions =  require('../actions/api/postActions');
+const postActions = require('../actions/api/postActions');
 
 router.get('/posts', postActions.getPosts);
 

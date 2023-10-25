@@ -2,7 +2,7 @@ import logo from "../../Images/logo-no-background.png";
 import {Link as RouterLink} from "react-router-dom";
 import React from "react";
 
-function Logo() {
+function Logo () {
     return (
         <RouterLink to="/">
             <img src={logo} alt="Logo" className="App-logo"/>

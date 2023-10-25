@@ -24,7 +24,7 @@ const focusedTextFieldStyle = {
 };
 
 
-export default function Title(props) {
+export default function Title (props) {
     return (
         <TextField
             label="Tytuł"

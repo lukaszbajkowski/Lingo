@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-export default function EditNote(props) {
+export default function EditNote (props) {
     const [title, setTitle] = useState(props.title);
     const [desc, setDesc] = useState(props.body);
 
@@ -39,7 +39,8 @@ export default function EditNote(props) {
             />
             <button
                 onClick={() => editNote()}
-            >Zapisz notatkę</button>
+            >Zapisz notatkę
+            </button>
         </div>
     );
 }

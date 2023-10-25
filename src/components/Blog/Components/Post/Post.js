@@ -7,11 +7,10 @@ import Introduction from "./RightColumn/Introduction";
 import ImagePost from "./LeftColumn/Image";
 import Button from "@mui/material/Button";
 
-function Post(props) {
+function Post (props) {
     props.onDelete(props.id)
 
-    return (
-        <Grid container>
+    return (<Grid container>
             <Grid item xs={12} sm={12} md={6}>
                 <ImagePost/>
             </Grid>
@@ -36,8 +35,7 @@ function Post(props) {
                     </Button>
                 </Grid>
             </Grid>
-        </Grid>
-    )
+        </Grid>)
 }
 
 export default Post;

@@ -7,7 +7,7 @@ import EditNote from "./EditPost/EditNote";
 import axios from "../../../axios";
 
 class Content extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
 
         this.state = {
@@ -18,25 +18,25 @@ class Content extends React.Component {
         }
     }
 
-    componentDidMount() {
+    componentDidMount () {
         this.fetchNotes();
     }
 
-    async fetchNotes() {
+    async fetchNotes () {
         const res = await axios.get('/posts');
         const notes = res.data;
-        this.setState({ notes });
+        this.setState({notes});
     }
 
-    async deleteNote(id) {
+    async deleteNote (id) {
         const notes = [...this.state.notes]
             .filter(note => note._id !== id);
 
         await axios.delete(`/posts/` + id);
-        this.setState({ notes });
+        this.setState({notes});
     }
 
-    async addNote(note) {
+    async addNote (note) {
         const notes = [...this.state.notes];
 
         // add to backend
@@ -48,7 +48,7 @@ class Content extends React.Component {
         this.setState({notes});
     }
 
-     async editNote(note) {
+    async editNote (note) {
         // edit backend
         await axios.put(`/posts/` + note._id, note);
 
@@ -62,16 +62,16 @@ class Content extends React.Component {
         this.toggleModal();
     }
 
-    toggleModal() {
+    toggleModal () {
         this.setState({showEditModal: !this.state.showEditModal});
     }
 
-    editNoteHandler(note) {
+    editNoteHandler (note) {
         this.toggleModal();
-        this.setState({ editNote: note });
+        this.setState({editNote: note});
     }
 
-    render() {
+    render () {
         return (
             <div>
 

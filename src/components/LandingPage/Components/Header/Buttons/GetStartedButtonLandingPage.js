@@ -2,7 +2,7 @@ import {Link as RouterLink} from "react-router-dom";
 import Button from "@mui/material/Button";
 import React from "react";
 
-function GetStartedButtonLandingPage() {
+function GetStartedButtonLandingPage () {
     return (
         <Button
             variant="contained"

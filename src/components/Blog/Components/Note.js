@@ -1,5 +1,4 @@
-import {Grid, Typography} from "@mui/material";
-import {Link as RouterLink} from "react-router-dom";
+import {Grid} from "@mui/material";
 import AnimatedElement from "../../Animation/AnimatedElementOnce";
 import Button from "@mui/material/Button";
 import React from "react";
@@ -8,7 +7,7 @@ import CategoryButton from "./Post/RightColumn/CategoryButton";
 import Introduction from "./Post/RightColumn/Introduction";
 import Title from "./Post/RightColumn/Title";
 
-function Note(props) {
+function Note (props) {
     const editHandler = () => {
         props.onEdit({
             _id: props.id,
@@ -17,7 +16,7 @@ function Note(props) {
         });
     }
 
-    return(
+    return (
         <AnimatedElement className={`animated-element animated-element-delay-100ms`}>
             <Grid container>
                 <Grid item xs={12} sm={12} md={6}>
@@ -33,7 +32,9 @@ function Note(props) {
                                 variant="outlined"
                                 color="primary"
                                 className="CategoryButton"
-                                onClick={() => {props.onDelete(props.id)}}
+                                onClick={() => {
+                                    props.onDelete(props.id)
+                                }}
                             >
                                 Usuń
                             </Button>
@@ -64,4 +65,5 @@ function Note(props) {
         </AnimatedElement>
     );
 }
+
 export default Note;

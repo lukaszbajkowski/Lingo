@@ -2,7 +2,7 @@ import Button from "@mui/material/Button";
 import {Link} from "react-scroll";
 import React from "react";
 
-function HowItWorksButton() {
+function HowItWorksButton () {
     return (
         <Link
             className="stylebutton"

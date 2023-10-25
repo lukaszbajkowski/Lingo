@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import React from "react";
 import '../../../../styles_components/style_content.scss'
 
-function CategoryButton(props) {
+function CategoryButton (props) {
     return (
         <Button
             variant="outlined"

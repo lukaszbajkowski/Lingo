@@ -24,7 +24,7 @@ const focusedTextFieldStyle = {
 };
 
 
-export default function Desc(props) {
+export default function Desc (props) {
     return (
         <TextField
             label="Treść"

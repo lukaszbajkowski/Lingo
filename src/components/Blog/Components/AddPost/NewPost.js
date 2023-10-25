@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import NewPostModal from './NewPostModal';
 import Button from "@mui/material/Button";
 
-function NewPost(props) {
+function NewPost (props) {
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
     const [open, setOpen] = useState(false);

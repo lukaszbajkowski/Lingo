@@ -1,7 +1,7 @@
 import {Typography} from "@mui/material";
 import React from "react";
 
-export default function ModalTitle() {
+export default function ModalTitle () {
     return (
         <Typography
             flexGrow={1}

@@ -16,12 +16,21 @@ import Footer from "../Footer/Footer";
 import LoadingScreen from "../Loader/Loader";
 
 import {Box, Container, CssBaseline, ThemeProvider} from "@mui/material";
-import { createTheme } from '@mui/material/styles';
-import { Element } from 'react-scroll';
+import {createTheme} from '@mui/material/styles';
+import {Element} from 'react-scroll';
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelopeOpen, faFile, faListCheck, faChartPie, faPersonDigging, faChartLine, faStar, faPlus } from '@fortawesome/free-solid-svg-icons'
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {fab} from '@fortawesome/free-brands-svg-icons'
+import {
+    faChartLine,
+    faChartPie,
+    faEnvelopeOpen,
+    faFile,
+    faListCheck,
+    faPersonDigging,
+    faPlus,
+    faStar
+} from '@fortawesome/free-solid-svg-icons'
 
 library.add(fab, faEnvelopeOpen, faFile, faListCheck, faChartPie, faPersonDigging, faChartLine, faStar, faPlus)
 
@@ -42,12 +51,12 @@ const theme = createTheme({
     },
 });
 
-function LandingPage() {
+function LandingPage () {
     return (
         <ThemeProvider theme={theme}>
             <Container maxWidth="lg" className="Container">
-                <Box sx={{ height: 'auto', mx: 2, }} >
-                    <CssBaseline />
+                <Box sx={{height: 'auto', mx: 2,}}>
+                    <CssBaseline/>
                     <Header/>
                     <Hero/>
                     <Element name="about-us">
@@ -66,19 +75,19 @@ function LandingPage() {
             </Element>
             <Element name="faqs">
                 <Container maxWidth="lg" className="Container" style={{padding: 0}}>
-                    <Box sx={{ height: 'auto', mx: 2, }} >
+                    <Box sx={{height: 'auto', mx: 2,}}>
                         <FAQs/>
                     </Box>
                 </Container>
             </Element>
             <Container maxWidth="lg" className="Container" style={{padding: 0}}>
-                <Box sx={{ height: 'auto', mx: 2, }} >
-                    <CssBaseline />
+                <Box sx={{height: 'auto', mx: 2,}}>
+                    <CssBaseline/>
                     <CTA/>
                     <Footer/>
                 </Box>
             </Container>
-            <LoadingScreen />
+            <LoadingScreen/>
         </ThemeProvider>
     );
 }
