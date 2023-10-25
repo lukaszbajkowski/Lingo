@@ -3,8 +3,9 @@ import '../../styles_components/style_content.scss';
 import Note from "./Note";
 import NewPost from "./AddPost/NewPost";
 import Modal from "react-modal";
-import EditNote from "./EditPost/EditNote";
+import EditPost from "./EditPost/EditPost";
 import axios from "../../../axios";
+import EditPostModal from "./EditPost/EditPostModal";
 
 class Content extends React.Component {
     constructor (props) {
@@ -79,22 +80,12 @@ class Content extends React.Component {
                     onAdd={(note) => this.addNote(note)}
                 />
 
-                <Modal
+                <EditPostModal
                     isOpen={this.state.showEditModal}
-                    contentLabel={'Edytuj notatkę'}
-                >
-                    <EditNote
-                        title={this.state.editNote.title}
-                        body={this.state.editNote.body}
-                        id={this.state.editNote._id}
-                        onEdit={note => this.editNote(note)}
-                    />
-                    <button
-                        onClick={() => this.toggleModal()}
-                    >
-                        Anuluj
-                    </button>
-                </Modal>
+                    editNote={this.state.editNote}
+                    toggleModal={() => this.toggleModal()}
+                    editNoteHandler={(note) => this.editNote(note)}
+                />
 
                 {this.state.notes.map(note => (
                     <Note

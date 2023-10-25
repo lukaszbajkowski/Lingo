@@ -57,13 +57,13 @@
   justify-content: space-between;
 }
 
-.CategoryButton, .CancelAddPostButton, .AddPostButton {
+.CategoryButton, .CancelAddPostButton, .CancelEditPostButton, .AddPostButton, .EditPostButton {
   border-radius: 12px !important;
   text-transform: none !important;
   font-family: 'Plus Jakarta Sans', sans-serif !important;
 }
 
-.CancelAddPostButton, .AddPostButton {
+.CancelAddPostButton, .CancelEditPostButton, .AddPostButton, .EditPostButton {
   margin-left: 4px !important;
   margin-right: 4px !important;
 }
