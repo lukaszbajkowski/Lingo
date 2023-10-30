@@ -1,11 +1,27 @@
-import React, {useState} from 'react';
-import NewPostModal from './NewPostModal';
+import React, {useEffect, useState} from 'react';
 import Button from "@mui/material/Button";
+import axios from "../../../../axios";
+import NewPostModal from "./NewPostModal"; // Importuj moduł Axios
 
 function NewPost (props) {
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
+    const [category, setCategory] = useState('');
+    const [categories, setCategories] = useState([]); // Dodaj stan kategorii
     const [open, setOpen] = useState(false);
+
+    useEffect(() => {
+        fetchCategories();
+    }, []);
+
+    const fetchCategories = async () => {
+        try {
+            const response = await axios.get('/categories');
+            setCategories(response.data);
+        } catch (error) {
+            console.error('Błąd podczas pobierania kategorii:', error);
+        }
+    };
 
     const handleOpen = () => {
         setOpen(true);
@@ -19,11 +35,13 @@ function NewPost (props) {
         const note = {
             title: title,
             body: desc,
+            category: category,
         };
         props.onAdd(note);
 
         setTitle('');
         setDesc('');
+        setCategory('');
         handleClose();
     };
 
@@ -40,6 +58,9 @@ function NewPost (props) {
                 onTitleChange={(event) => setTitle(event.target.value)}
                 desc={desc}
                 onDescChange={(event) => setDesc(event.target.value)}
+                category={category}
+                onCategoryChange={(event) => setCategory(event.target.value)}
+                categories={categories}
                 onAddNote={addNote}
             />
         </div>

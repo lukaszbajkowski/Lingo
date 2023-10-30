@@ -4,10 +4,12 @@ import CancelEditButton from "./ModalElement/Buttons/CancelEditButton";
 import SaveEditButton from "./ModalElement/Buttons/SaveEditButton";
 import Title from "../AddPost/ModalElement/Input/Title";
 import Desc from "../AddPost/ModalElement/Input/Desc";
+import Category from "../AddPost/ModalElement/Input/Category";
 
 export default function EditPost (props) {
     const [title, setTitle] = useState(props.title);
     const [desc, setDesc] = useState(props.body);
+    const [category, setCategory] = useState(props.category);
 
     const changeTitleHandler = (event) => {
         const value = event.target.value;
@@ -19,10 +21,16 @@ export default function EditPost (props) {
         setDesc(value);
     }
 
+    const changeCategoryHandler = (event) => {
+        const value = event.target.value;
+        setCategory(value);
+    }
+
     const editNote = () => {
         const note = {
             title: title,
             body: desc,
+            category: category,
             _id: props.id
         };
         props.onEdit(note);
@@ -40,6 +48,12 @@ export default function EditPost (props) {
                 <Desc
                     value={desc}
                     onChange={changeDescHandler}
+                />
+            </Box>
+            <Box mt={2}>
+                <Category
+                    value={category}
+                    onChange={changeCategoryHandler}
                 />
             </Box>
             <Box

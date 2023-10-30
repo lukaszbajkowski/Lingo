@@ -6,7 +6,7 @@ import '../../../../styles_components/style_content.scss'
 function Title (props) {
     return (
         <RouterLink
-            // to="/"
+            to="/posts/<%= post._id %>"
             className={`HoverFont`}
         >
             <Typography variant='h4' gutterBottom className={`Font`}>

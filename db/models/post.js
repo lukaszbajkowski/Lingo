@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Post = new mongoose.model('Post', {
+const postSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -9,18 +9,20 @@ const Post = new mongoose.model('Post', {
         type: String,
         required: true,
     },
-    // author: {
-    //   type: String,
-    //   required: true,
-    // },
-    // createdAt: {
-    //   type: Date,
-    //   default: Date.now,
-    // },
-    // updatedAt: {
-    //   type: Date,
-    //   default: Date.now,
-    // },
+    category: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category',
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    },
+    updatedAt: {
+        type: Date,
+        default: Date.now,
+    },
 });
+
+const Post = mongoose.model('Post', postSchema);
 
 module.exports = Post;

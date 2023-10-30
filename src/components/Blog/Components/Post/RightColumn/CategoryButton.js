@@ -12,8 +12,7 @@ function CategoryButton (props) {
             className="CategoryButton"
             // to="/blog/categories/:id"
         >
-            {/*{props.category}*/}
-            Na kategorię
+            {props.category}
         </Button>
     );
 }

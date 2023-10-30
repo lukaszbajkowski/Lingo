@@ -12,9 +12,12 @@ function Note (props) {
         props.onEdit({
             _id: props.id,
             title: props.title,
-            body: props.body
+            body: props.body,
+            category: props.category
         });
     }
+
+    const categoryName = props.categories.find(category => category._id === props.category)?.name;
 
     return (
         <AnimatedElement className={`animated-element animated-element-delay-100ms`}>
@@ -25,7 +28,10 @@ function Note (props) {
                 <Grid item xs={12} sm={12} md={6}>
                     <Grid item xs={12} className={`Position`}>
                         <AnimatedElement className={`animated-element animated-element-delay-200ms`}>
-                            <CategoryButton/>
+                            <CategoryButton
+                                category={categoryName}
+                                categories={props.categories}
+                            />
                         </AnimatedElement>
                         <AnimatedElement className={`animated-element animated-element-delay-200ms`}>
                             <Button

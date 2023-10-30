@@ -3,7 +3,7 @@ const Post = require('../../db/models/Post');
 class PostActions {
     async savePost (req, res) {
         try {
-            const {title, body} = req.body;
+            const {title, body, category} = req.body;
 
             let newPost;
 
@@ -11,9 +11,8 @@ class PostActions {
                 newPost = new Post({
                     title,
                     body,
-                    // author,
-                    // createdAt: new Date(),
-                    // updatedAt: new Date(),
+                    category,
+                    createdAt: new Date(),
                 });
                 await newPost.save();
             } catch (err) {
@@ -51,13 +50,20 @@ class PostActions {
 
     async updatePost (req, res) {
         const id = req.params.id;
-        const {title, body, author} = req.body;
+        const {title, body, category} = req.body;
 
-        const post = await Post.findOneAndUpdate({_id: id}, {title, body, author, updatedAt: new Date()});
-        await post.save();
+        const updatedData = {
+            title,
+            body,
+            category,
+            updatedAt: new Date(),
+        };
+
+        const post = await Post.findOneAndUpdate({_id: id}, updatedData, {new: true});
 
         res.status(201).json(post);
     }
+
 
     async deletePost (req, res) {
         const id = req.params.id;

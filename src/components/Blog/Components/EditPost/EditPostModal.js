@@ -47,6 +47,7 @@ class EditPostModal extends React.Component {
                             <EditPost
                                 title={editNote.title}
                                 body={editNote.body}
+                                category={editNote.category}
                                 id={editNote._id}
                                 onEdit={note => editNoteHandler(note)}
                                 toggleModal={toggleModal}
