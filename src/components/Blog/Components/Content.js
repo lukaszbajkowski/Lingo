@@ -4,7 +4,7 @@ import Note from "./Note";
 import NewPost from "./AddPost/NewPost";
 import axios from "../../../axios";
 import EditPostModal from "./EditPost/EditPostModal";
-import AddCategoryModal from "./AddCategoryModal";
+import AddCategory from "./Category/AddCategory";
 
 class Content extends React.Component {
     constructor (props) {
@@ -96,6 +96,7 @@ class Content extends React.Component {
         this.setState({showAddCategoryModal: !this.state.showAddCategoryModal});
     }
 
+
     render () {
         return (
             <div>
@@ -108,13 +109,11 @@ class Content extends React.Component {
                     editNote={this.state.editNote}
                     toggleModal={() => this.toggleModal()}
                     editNoteHandler={(note) => this.editNote(note)}
+                    categories={this.state.categories}
                 />
 
-                <button onClick={() => this.toggleAddCategoryModal()}>Dodaj kategorię</button>
-                <AddCategoryModal
-                    isOpen={this.state.showAddCategoryModal}
-                    toggleModal={() => this.toggleAddCategoryModal()}
-                    addCategory={(category) => this.addCategory(category)}
+                <AddCategory
+                    addCategory={category => this.addCategory(category)}
                 />
 
                 {this.state.notes.map(note => (

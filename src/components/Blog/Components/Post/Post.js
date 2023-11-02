@@ -17,13 +17,13 @@ function Post (props) {
             <Grid item xs={12} sm={12} md={6}>
                 <Grid item xs={12} className={`Position`}>
                     <AnimatedElement className={`animated-element animated-element-delay-200ms`}>
-                        <CategoryButton category={props.category}/>
+                        {/*<CategoryButton category={props.category}/>*/}
                     </AnimatedElement>
                     <AnimatedElement className={`animated-element animated-element-delay-300ms`}>
-                        <Title title={props.title}/>
+                        {/*<Title title={props.title}/>*/}
                     </AnimatedElement>
                     <AnimatedElement className={`animated-element animated-element-delay-400ms`}>
-                        <Introduction content={props.content}/>
+                        {/*<Introduction content={props.content}/>*/}
                     </AnimatedElement>
                     <Button
                         variant="outlined"

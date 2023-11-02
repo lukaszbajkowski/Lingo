@@ -6,12 +6,13 @@ import CloseButton from "../AddPost/ModalElement/Buttons/CloseButton";
 import EditPost from "./EditPost";
 
 class EditPostModal extends React.Component {
-    render() {
+    render () {
         const {
             isOpen,
             editNote,
             toggleModal,
-            editNoteHandler
+            editNoteHandler,
+            categories
         } = this.props;
 
         const ModalStyle = {
@@ -51,6 +52,7 @@ class EditPostModal extends React.Component {
                                 id={editNote._id}
                                 onEdit={note => editNoteHandler(note)}
                                 toggleModal={toggleModal}
+                                categories={categories}
                             />
                         </Box>
                     </Paper>

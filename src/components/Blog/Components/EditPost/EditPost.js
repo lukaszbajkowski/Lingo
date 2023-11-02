@@ -4,7 +4,7 @@ import CancelEditButton from "./ModalElement/Buttons/CancelEditButton";
 import SaveEditButton from "./ModalElement/Buttons/SaveEditButton";
 import Title from "../AddPost/ModalElement/Input/Title";
 import Desc from "../AddPost/ModalElement/Input/Desc";
-import Category from "../AddPost/ModalElement/Input/Category";
+import CategorySelect from "./ModalElement/Select/Category";
 
 export default function EditPost (props) {
     const [title, setTitle] = useState(props.title);
@@ -51,9 +51,10 @@ export default function EditPost (props) {
                 />
             </Box>
             <Box mt={2}>
-                <Category
+                <CategorySelect
                     value={category}
-                    onChange={changeCategoryHandler}
+                    categories={props.categories}
+                    onCategoryChange={changeCategoryHandler}
                 />
             </Box>
             <Box

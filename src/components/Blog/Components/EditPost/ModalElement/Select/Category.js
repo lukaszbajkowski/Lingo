@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import {FormControl, InputLabel, MenuItem, Select} from '@mui/material';
 
 const focusedTextFieldStyle = {
     '& .MuiOutlinedInput-root': {
@@ -22,25 +22,29 @@ const focusedTextFieldStyle = {
     },
 };
 
-function CategorySelect(props) {
+function CategorySelect (props) {
+    const isValidCategory = props.categories.some(category => category._id === props.value);
     return (
         <FormControl fullWidth sx={{...focusedTextFieldStyle}}>
             <InputLabel id="category-label">Kategoria</InputLabel>
             <Select
                 labelId="category-label"
                 id="category"
-                value={props.category}
+                value={isValidCategory ? props.value : ''}
                 onChange={props.onCategoryChange}
                 label="Kategoria"
             >
-                {props.categories.map((category) => (
-                    <MenuItem key={category._id} value={category._id}>
-                        {category.name}
-                    </MenuItem>
-                ))}
+                {props.categories &&
+                    props.categories.map((category) => (
+                        <MenuItem key={category._id} value={category._id}>
+                            {category.name}
+                        </MenuItem>
+                    ))}
             </Select>
         </FormControl>
     );
 }
 
+
 export default CategorySelect;
+
