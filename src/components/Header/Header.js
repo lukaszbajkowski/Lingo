@@ -6,8 +6,11 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import AnimatedElement from "../Animation/AnimatedElementOnce";
 import HeaderButton from "./Buttons/HeaderButton";
 import Logo from "./Buttons/Logo";
-import GetStartedButton from "../LandingPage/Components/Header/Buttons/GetStartedButton";
+import GetStartedButton from "../LandingPage/Components/Header/Buttons/GetStartedButtonLandingPage";
 import {useLocation} from "react-router-dom";
+import {Box} from "@mui/material";
+import AllPosts from "../BlogAdmin/Components/Header/Buttons/AllPosts";
+import AllCategoryButton from "../BlogAdmin/Components/Header/Buttons/AllCategoryButton";
 
 function Header () {
     const location = useLocation();
@@ -56,10 +59,16 @@ function Header () {
                             <GetStartedButton/>
                         </AnimatedElement>
                     ) : (
-                        <AnimatedElement
-                            className="animated-element-header animated-element animated-element-delay-300ms">
-                            <GetStartedButton/>
-                        </AnimatedElement>
+                        <Box className={`ButtonContainer`}>
+                            <AnimatedElement
+                                className="animated-element-header animated-element animated-element-delay-200ms">
+                                <AllPosts/>
+                            </AnimatedElement>
+                            <AnimatedElement
+                                className="animated-element-header animated-element animated-element-delay-300ms">
+                                <AllCategoryButton/>
+                            </AnimatedElement>
+                        </Box>
                     )}
                 </Toolbar>
             </AppBar>

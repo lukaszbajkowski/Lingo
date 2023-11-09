@@ -9,7 +9,7 @@ const cors = require('cors');
 require('./db/mongoose.js');
 
 // parser
-// Content-Type: application/json
+// ContentAdmin-Type: application/json
 app.use(bodyParser.json());
 
 // fix  cors

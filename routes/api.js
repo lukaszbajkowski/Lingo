@@ -4,10 +4,12 @@ const router = express.Router();
 const postActions = require('../actions/api/postActions');
 const categoryActions = require('../actions/api/categoryActions');
 
-// Dodaj nowe ścieżki dla obsługi kategorii
 router.get('/categories', categoryActions.getCategories);
 
+router.get('/categories/:id', categoryActions.getCategory);
+
 router.post('/categories', categoryActions.createCategory);
+
 
 router.get('/posts', postActions.getPosts);
 

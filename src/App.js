@@ -1,7 +1,9 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import LandingPage from "./components/LandingPage/LandingPage";
-import Blog from "./components/Blog/Blog"
+import Post from "./components/SinglePost/Post";
+import Category from "./components/Category/Category";
+import Blog from "./components/BlogUser/Blog";
 
 function App () {
     return (
@@ -9,6 +11,10 @@ function App () {
             <Routes>
                 <Route path="/" element={<LandingPage/>}/>
                 <Route path="/blog" element={<Blog/>}/>
+                <Route path="/blog/admin" element={<Blog/>}/>
+                {/*<Route path="/categories" element={}/>*/}
+                <Route path="/category/:id" element={<Category/>}/>
+                <Route path="/post/:id" element={<Post/>}/>
             </Routes>
         </Router>
     );

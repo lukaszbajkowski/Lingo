@@ -20,11 +20,11 @@ function Footer () {
                 <AnimatedElement className="animated-element-footer FooterPosition">
                     <Grid container spacing={2} className="FooterElement">
                         <Grid item>
-                            {/*Button from header*/}
+                            {/*Buttons from header*/}
                             <AboutUsButton/>
                         </Grid>
                         <Grid item>
-                            {/*Button from header*/}
+                            {/*Buttons from header*/}
                             <HowItWorksButton/>
                         </Grid>
                         <Grid item style={{paddingLeft: 0}}>

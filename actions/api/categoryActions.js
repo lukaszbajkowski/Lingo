@@ -28,6 +28,13 @@ const categoryActions = {
             res.status(500).send('Wystąpił błąd podczas tworzenia kategorii.');
         }
     },
+
+    async getCategory (req, res) {
+        const id = req.params.id;
+        const category = await Category.findOne({_id: id});
+
+        res.status(200).json(category);
+    }
 };
 
 module.exports = categoryActions;
