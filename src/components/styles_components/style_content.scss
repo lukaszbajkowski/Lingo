@@ -21,12 +21,12 @@
   height: 50vh;
 }
 
-.Font, .FontTitleModal {
+.Font, .FontTitleModal, .CategoryTitle {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   color: rgb(34, 62, 32);
 }
 
-.HoverFont {
+.HoverFont, .CategoryTitle {
   :hover {
     color: #172b17;
   }
@@ -34,6 +34,11 @@
 
 .FontTitleModal {
   font-weight: 400 !important;
+}
+
+.CategoryTitle {
+  font-weight: 500 !important;
+  margin-bottom: 16px !important;
 }
 
 .Position {
@@ -52,6 +57,54 @@
   margin: 32px 24px !important;
 }
 
+.CategoryCTA {
+  margin-top: 86px !important;
+  padding-left: 16px;
+  padding-bottom: 32px;
+  font-weight: 500 !important;
+
+  @media (max-width: 600px) {
+    padding-left: 32px;
+    padding-bottom: 16px;
+  }
+}
+
+.PositionCategories {
+  padding-inline: 16px;
+
+  @media (max-width: 600px) {
+    padding-inline: 0;
+  }
+
+  @media (max-width: 600px) {
+    padding-inline: 32px;
+  }
+
+  > .MuiGrid-item {
+    padding-top: 48px !important;
+  }
+}
+
+.Card {
+  border-radius: 16px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05) !important;
+  transition: .5s;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+    transition: .5s;
+  }
+}
+
+.CardContent {
+  padding: 24px !important;
+}
+
+.ArrowButtonPosition {
+  margin-top: 24px;
+  justify-content: right;
+  display: flex;
+}
 
 .ModalContainer {
   position: absolute;
@@ -73,7 +126,7 @@
 }
 
 .CategoryButton, .CancelAddPostButton, .CancelEditPostButton, .AddPostButton, .EditPostButton, .CancelAddCategoryButton,
-.AddCategoryButton, .OpenAddPostButton, .OpenAddCategoryButton {
+.AddCategoryButton, .OpenAddPostButton, .OpenAddCategoryButton, .RightArrowButton {
   border-radius: 12px !important;
   text-transform: none !important;
   font-family: 'Plus Jakarta Sans', sans-serif !important;

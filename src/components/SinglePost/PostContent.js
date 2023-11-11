@@ -1,11 +1,11 @@
 import {Grid} from "@mui/material";
 import React from "react";
 import AnimatedElement from "../Animation/AnimatedElementOnce";
-import MainImage from "./Element/Images/MainImage";
+import MainImage from "./Components/Images/MainImage";
 import CategoryButton from "../BlogAdmin/Components/Post/RightColumn/CategoryButton";
-import FormDate from "./Element/Texts/FormDate";
-import PostText from "./Element/Texts/PostText";
-import PostTitle from "./Element/Texts/PostTitle";
+import FormDate from "./Components/Texts/FormDate";
+import PostText from "./Components/Texts/PostText";
+import PostTitle from "./Components/Texts/PostTitle";
 
 
 function PostContent (props) {

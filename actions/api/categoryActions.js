@@ -13,11 +13,12 @@ const categoryActions = {
 
     async createCategory (req, res) {
         try {
-            const {name, description} = req.body;
+            const {name, description, icon} = req.body;
 
             const newCategory = new Category({
                 name,
                 description,
+                icon,
             });
 
             await newCategory.save();

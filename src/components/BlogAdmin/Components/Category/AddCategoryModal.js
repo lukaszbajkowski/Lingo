@@ -6,20 +6,28 @@ import Desc from "../AddPost/ModalElement/Input/Desc";
 import CloseButton from "../AddPost/ModalElement/Buttons/CloseButton";
 import CancelButton from "./ModalElement/Buttons/CancelCategoryButton";
 import AddButton from "./ModalElement/Buttons/AddCategoryButton";
+import IconPicker from "../IconPicker";
 
 const AddCategoryModal = ({isOpen, toggleModal, addCategory}) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    const [selectedIcon, setSelectedIcon] = useState('');
+
+    const handleIconChange = (event) => {
+        setSelectedIcon(event.target.value);
+    };
 
     const handleAddCategory = () => {
         const newCategory = {
             name: name,
             description: description,
+            icon: selectedIcon,
         };
 
         addCategory(newCategory);
         setName("");
         setDescription("");
+        setSelectedIcon("");
         toggleModal();
     };
 
@@ -65,7 +73,13 @@ const AddCategoryModal = ({isOpen, toggleModal, addCategory}) => {
                             onChange={(e) => setDescription(e.target.value)}
                         />
                     </Box>
-                     <Box
+                    <Box mt={2}>
+                        <IconPicker
+                            value={selectedIcon}
+                            onChange={handleIconChange}
+                        />
+                    </Box>
+                    <Box
                         mt={2}
                         className={`ButtonContainer`}
                     >

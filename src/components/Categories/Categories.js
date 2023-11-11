@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from "react";
 import {Box, Container, CssBaseline, ThemeProvider} from "@mui/material";
-import {createTheme} from "@mui/material/styles";
-import {useParams} from "react-router-dom";
-import axios from "../../axios";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import React from "react";
+import {createTheme} from "@mui/material/styles";
+import CategoriesContent from "./CategoriesContent";
 
 const theme = createTheme({
     palette: {
@@ -23,34 +22,14 @@ const theme = createTheme({
     },
 });
 
-function CategoryPage () {
-    const {id} = useParams();
-    const [category, setCategory] = useState(null);
-
-    useEffect(() => {
-        axios.get(`/categories/${id}`)
-            .then((response) => {
-                setCategory(response.data);
-            })
-            .catch((error) => {
-                console.error("Błąd podczas pobierania treści kategorii:", error);
-            });
-    }, [id]);
-
+function Categories () {
     return (
         <ThemeProvider theme={theme}>
             <Container maxWidth="lg" className="Container">
                 <Box sx={{height: 'auto', mx: 2,}}>
                     <CssBaseline/>
                     <Header/>
-                    {category ? (
-                        <div>
-                            <h1>{category.name}</h1>
-                            <p>{category.description}</p>
-                        </div>
-                    ) : (
-                        <p>Ładowanie...</p>
-                    )}
+                    <CategoriesContent/>
                 </Box>
             </Container>
             <Container maxWidth="lg" className="Container" style={{padding: 0}}>
@@ -62,4 +41,4 @@ function CategoryPage () {
     );
 }
 
-export default CategoryPage;
+export default Categories;

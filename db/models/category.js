@@ -8,6 +8,10 @@ const categorySchema = new mongoose.Schema({
   description: {
     type: String,
   },
+  icon: {
+    type: String, // lub Enum, jeśli chcesz ograniczyć wybór do konkretnych ikon
+    required: true,
+  },
 });
 
 const Category = mongoose.model('Category', categorySchema);

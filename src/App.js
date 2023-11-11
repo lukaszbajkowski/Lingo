@@ -4,6 +4,7 @@ import LandingPage from "./components/LandingPage/LandingPage";
 import Post from "./components/SinglePost/Post";
 import Category from "./components/Category/Category";
 import Blog from "./components/BlogUser/Blog";
+import Categories from "./components/Categories/Categories";
 
 function App () {
     return (
@@ -12,7 +13,7 @@ function App () {
                 <Route path="/" element={<LandingPage/>}/>
                 <Route path="/blog" element={<Blog/>}/>
                 <Route path="/blog/admin" element={<Blog/>}/>
-                {/*<Route path="/categories" element={}/>*/}
+                <Route path="/categories" element={<Categories/>}/>
                 <Route path="/category/:id" element={<Category/>}/>
                 <Route path="/post/:id" element={<Post/>}/>
             </Routes>
