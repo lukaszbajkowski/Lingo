@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {Box, Container, Modal, Paper} from "@mui/material";
+import React, { useState } from "react";
+import { Box, Container, Modal, Paper } from "@mui/material";
 import ModalTitle from "./ModalElement/ModalTitle";
 import Title from "../AddPost/ModalElement/Input/Title";
 import Desc from "../AddPost/ModalElement/Input/Desc";
@@ -8,13 +8,13 @@ import CancelButton from "./ModalElement/Buttons/CancelCategoryButton";
 import AddButton from "./ModalElement/Buttons/AddCategoryButton";
 import IconPicker from "../IconPicker";
 
-const AddCategoryModal = ({isOpen, toggleModal, addCategory}) => {
+const AddCategoryModal = ({ isOpen, toggleModal, addCategory }) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [selectedIcon, setSelectedIcon] = useState('');
 
-    const handleIconChange = (event) => {
-        setSelectedIcon(event.target.value);
+    const handleIconChange = (iconName) => {
+        setSelectedIcon(iconName);
     };
 
     const handleAddCategory = () => {
@@ -38,7 +38,6 @@ const AddCategoryModal = ({isOpen, toggleModal, addCategory}) => {
         borderRadius: 3,
     };
 
-
     return (
         <Modal
             open={isOpen}
@@ -54,7 +53,7 @@ const AddCategoryModal = ({isOpen, toggleModal, addCategory}) => {
                         display="flex"
                         alignItems="center"
                     >
-                        <ModalTitle/>
+                        <ModalTitle />
                         <Box>
                             <CloseButton
                                 onClick={toggleModal}

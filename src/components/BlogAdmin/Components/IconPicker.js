@@ -1,6 +1,10 @@
 import React from 'react';
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import * as FaIcons from 'react-icons/fa';
+import {FormControl, InputLabel, MenuItem, Select} from '@mui/material';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {fas} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
+library.add(fas);
 
 const focusedTextFieldStyle = {
     '& .MuiOutlinedInput-root': {
@@ -23,24 +27,44 @@ const focusedTextFieldStyle = {
     },
 };
 
-// Pobierz wszystkie ikony z Font Awesome
-const iconOptions = Object.entries(FaIcons).map(([key, value]) => ({
-    label: key.replace(/([a-z])([A-Z])/g, '$1 $2'), // Dodaj spację między wielkimi literami
-    value: React.createElement(value),
+// Utwórz tablicę z wszystkimi dostępnymi ikonami
+const iconOptions = Object.keys(fas).map((icon) => ({
+    name: icon.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase(),
+    label: icon.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^fa /, ''),
+    prefix: 'fas',
 }));
 
-const IconPicker = ({ value, onChange }) => {
+const IconPicker = ({value, onChange}) => {
+    const formatIconValue = (iconName, prefix) => {
+        return `${prefix} ${iconName}`;
+    };
+
+    const selectedIcon = iconOptions.find((option) => formatIconValue(option.name, option.prefix) === value);
+
     return (
-        <FormControl fullWidth sx={{ ...focusedTextFieldStyle }}>
+        <FormControl fullWidth sx={{...focusedTextFieldStyle}}>
             <InputLabel>Ikona kategorii</InputLabel>
             <Select
                 value={value}
-                onChange={onChange}
+                onChange={(event) => {
+                    if (event && event.target && onChange) {
+                        onChange(event.target.value);
+                    }
+                }}
                 label={'Ikona kategorii'}
+                renderValue={() => (
+                    <span>
+                        <FontAwesomeIcon icon={[selectedIcon.prefix, selectedIcon.name]} size="lg"/>
+                        {` ${selectedIcon.label}`}
+                    </span>
+                )}
             >
                 {iconOptions.map((option, index) => (
-                    <MenuItem key={index} value={option.label}>
-                        <span>{option.value}</span>
+                    <MenuItem key={index} value={formatIconValue(option.name, option.prefix)}>
+                        <span>
+                            <FontAwesomeIcon icon={[option.prefix, option.name]} size="lg"/>
+                            {` ${option.label}`}
+                        </span>
                     </MenuItem>
                 ))}
             </Select>

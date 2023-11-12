@@ -58,6 +58,7 @@ class CategoriesContent extends React.Component {
                             id={category._id}
                             name={category.name}
                             description={category.description}
+                            icon={category.icon}
                             className={`SingleCategory`}
                         />
                     ))}
