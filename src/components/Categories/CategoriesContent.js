@@ -33,18 +33,20 @@ class CategoriesContent extends React.Component {
     }
 
     render () {
+        const reversedCategories = [...this.state.categories].reverse();
+
         return (
             <Container>
                 <AnimatedElement className={`animated-element animated-element-delay-100ms`}>
-                <Typography
-                    variant={`h4`}
-                    className={`CategoryCTA Font`}
-                >
-                    Eksploruj według <br/>
-                    <span style={{'color': '#ad5187'}}>
+                    <Typography
+                        variant={`h4`}
+                        className={`CategoryCTA Font`}
+                    >
+                        Eksploruj według <br/>
+                        <span style={{'color': '#ad5187'}}>
                     kategorii
                     </span>
-                </Typography>
+                    </Typography>
                 </AnimatedElement>
                 <Grid
                     container
@@ -52,7 +54,7 @@ class CategoriesContent extends React.Component {
                     rowSpacing={{xs: 4, sm: 6, md: 6}}
                     className="PositionCategories"
                 >
-                    {this.state.categories.map((category) => (
+                    {reversedCategories.map((category) => (
                         <SingleCategory
                             key={category._id}
                             id={category._id}

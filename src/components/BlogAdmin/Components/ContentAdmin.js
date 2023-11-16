@@ -98,6 +98,7 @@ class ContentAdmin extends React.Component {
 
 
     render () {
+        const reversedNotes = [...this.state.notes].reverse();
         return (
             <div>
                 <AnimatedElement className={`animated-element animated-element-delay-300ms`}>
@@ -119,7 +120,7 @@ class ContentAdmin extends React.Component {
                     categories={this.state.categories}
                 />
 
-                {this.state.notes.map(note => (
+                {reversedNotes.map(note => (
                     <Posts
                         key={note._id}
                         title={note.title}

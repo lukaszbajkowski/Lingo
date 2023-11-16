@@ -2,6 +2,7 @@ import React from "react";
 import '../../styles_components/style_content.scss';
 import axios from "../../../axios";
 import SinglePost from "./SinglePost";
+import {Box, Button} from "@mui/material";
 
 class ContentUser extends React.Component {
     constructor (props) {
@@ -13,7 +14,10 @@ class ContentUser extends React.Component {
             editNote: {},
             showEditModal: false,
             showAddCategoryModal: false,
-        }
+            visiblePosts: 2,
+        };
+
+        this.loadMorePosts = this.loadMorePosts.bind(this);
     }
 
     componentDidMount () {
@@ -33,17 +37,45 @@ class ContentUser extends React.Component {
         this.setState({categories});
     }
 
+    loadMorePosts () {
+        this.setState((prevState) => ({
+            visiblePosts: prevState.visiblePosts + 2,
+        }));
+    }
+
     render () {
+        const {notes, categories, visiblePosts} = this.state;
+
+        const reversedNotes = [...notes].reverse();
+
+        const postsToDisplay = reversedNotes.slice(0, visiblePosts);
+
         return (
-            this.state.notes.map(note => (
-                <SinglePost
-                    id={note._id}
-                    title={note.title}
-                    body={note.body}
-                    category={note.category}
-                    categories={this.state.categories}
-                />
-            ))
+            <div>
+                {postsToDisplay.map((note) => (
+                    <SinglePost
+                        key={note._id}
+                        id={note._id}
+                        title={note.title}
+                        body={note.body}
+                        category={note.category}
+                        categories={categories}
+                    />
+                ))}
+
+                {reversedNotes.length > visiblePosts && (
+                    <Box textAlign='center'>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            className={`ShowMoreButton`}
+                            onClick={this.loadMorePosts}
+                        >
+                            Pokaż więcej
+                        </Button>
+                    </Box>
+                )}
+            </div>
         );
     }
 }

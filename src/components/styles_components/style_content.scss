@@ -135,7 +135,7 @@
 }
 
 .CategoryButton, .CancelAddPostButton, .CancelEditPostButton, .AddPostButton, .EditPostButton, .CancelAddCategoryButton,
-.AddCategoryButton, .OpenAddPostButton, .OpenAddCategoryButton, .RightArrowButton {
+.AddCategoryButton, .OpenAddPostButton, .OpenAddCategoryButton, .RightArrowButton, .ShowMoreButton {
   border-radius: 12px !important;
   text-transform: none !important;
   font-family: 'Plus Jakarta Sans', sans-serif !important;
@@ -150,11 +150,16 @@
   margin-bottom: 8px !important;
 }
 
-.twitter-picker, .circle-picker  {
+.ShowMoreButton {
+  margin-top: 64px !important;
+  padding-inline: 64px !important;
+}
+
+.circle-picker  {
   box-shadow: none !important;
   border-radius: 12px !important;
   margin: 0 !important;
-  padding: 15px 16px 0px 16px !important;
+  padding: 15px 16px 0 16px !important;
 }
 
 .BoxColorPickerModal {
