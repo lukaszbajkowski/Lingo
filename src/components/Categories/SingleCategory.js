@@ -5,13 +5,17 @@ import {Button, Card, CardContent, Grid, Typography} from "@mui/material";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function SingleCategory (props) {
-    console.log(props);
     return (
         <Grid item xs={12} sm={6} md={4} lg={3} style={{width: '100%'}}>
             <AnimatedElement className={`animated-element animated-element-delay-100ms`}>
                 <Card className={`Card`}>
                     <CardContent className={`CardContent`}>
-                        <FontAwesomeIcon icon={props.icon} size={`lg`} className="fa-icon"/>
+                        <FontAwesomeIcon
+                            icon={props.icon}
+                            size={`lg`}
+                            style={{backgroundColor: props.iconColor, color: props.color}}
+                            className="fa-icon"
+                        />
                         <Typography
                             variant="h5"
                             gutterBottom
@@ -33,7 +37,10 @@ function SingleCategory (props) {
                                 className={`RightArrowButton`}
                                 to={`/category/${props.id}`}
                             >
-                                <FontAwesomeIcon icon="fa-solid fa-arrow-right" size={`lg`}/>
+                                <FontAwesomeIcon
+                                    icon="fa-solid fa-arrow-right"
+                                    size={`lg`}
+                                />
                             </Button>
                         </div>
                     </CardContent>

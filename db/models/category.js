@@ -7,10 +7,19 @@ const categorySchema = new mongoose.Schema({
   },
   description: {
     type: String,
+    required: true,
   },
   icon: {
-    type: String, // lub Enum, jeśli chcesz ograniczyć wybór do konkretnych ikon
+    type: String,
     required: true,
+  },
+  color: {
+    type: String,
+    required: true,
+  },
+  iconColor: {
+      type: String,
+      required: true,
   },
 });
 

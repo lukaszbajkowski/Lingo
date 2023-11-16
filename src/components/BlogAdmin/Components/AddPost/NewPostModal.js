@@ -8,11 +8,14 @@ import CancelButton from "./ModalElement/Buttons/CancelButton";
 import AddButton from "./ModalElement/Buttons/AddButton";
 import Category from "./ModalElement/Select/Category";
 
-const ModalStyle = {
+const modalStyle = {
     bgcolor: 'background.paper',
+    position: 'absolute',
     boxShadow: 24,
     p: 4,
     borderRadius: 3,
+    maxHeight: '85vh',
+    overflowY: 'auto',
 };
 
 function NewPostModal (props) {
@@ -24,7 +27,7 @@ function NewPostModal (props) {
             <Container maxWidth="sm">
                 <Paper
                     elevation={3}
-                    sx={ModalStyle}
+                    sx={modalStyle}
                     className={`ModalContainer`}
                 >
                     <Box
@@ -62,7 +65,7 @@ function NewPostModal (props) {
                         className={`ButtonContainer`}
                     >
                         <CancelButton
-                            onClick={props.onClose}
+                            onClick={props.onCancel}
                         />
                         <AddButton
                             onClick={props.onAddNote}

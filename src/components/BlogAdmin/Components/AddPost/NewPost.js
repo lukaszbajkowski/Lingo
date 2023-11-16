@@ -31,6 +31,13 @@ function NewPost (props) {
         setOpen(false);
     };
 
+    const handleCloseAddCategory = () => {
+        setTitle('');
+        setDesc('');
+        setCategory('');
+        handleClose();
+    };
+
     const addNote = () => {
         const note = {
             title: title,
@@ -54,6 +61,7 @@ function NewPost (props) {
             <NewPostModal
                 open={open}
                 onClose={handleClose}
+                onCancel={handleCloseAddCategory}
                 title={title}
                 onTitleChange={(event) => setTitle(event.target.value)}
                 desc={desc}

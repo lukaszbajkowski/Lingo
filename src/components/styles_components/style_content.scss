@@ -21,7 +21,7 @@
   height: 50vh;
 }
 
-.Font, .FontTitleModal, .CategoryTitle {
+.Font, .FontTitleModal, .CategoryTitle, .FontColorPickerModal {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   color: rgb(34, 62, 32);
 }
@@ -39,6 +39,15 @@
 .CategoryTitle {
   font-weight: 500 !important;
   margin-bottom: 16px !important;
+}
+
+.FontColorPickerModal {
+  font-size: 1rem;
+  line-height: 1.4375rem;
+  font-weight: 400;
+  margin-left: 16px !important;
+  margin-top: 16px !important;
+  margin-bottom: 1px !important;
 }
 
 .Position {
@@ -132,12 +141,27 @@
   font-family: 'Plus Jakarta Sans', sans-serif !important;
 }
 
-.CancelAddPostButton, .CancelEditPostButton, .AddPostButton, .EditPostButton, .CancelAddCategoryButton,
-.AddCategoryButton {
+.CancelAddPostButton, .CancelEditPostButton, .AddPostButton, .EditPostButton {
   margin-left: 4px !important;
   margin-right: 4px !important;
 }
 
 .CategoryButton {
   margin-bottom: 8px !important;
+}
+
+.twitter-picker, .circle-picker  {
+  box-shadow: none !important;
+  border-radius: 12px !important;
+  margin: 0 !important;
+  padding: 15px 16px 0px 16px !important;
+}
+
+.BoxColorPickerModal {
+  border: 1px solid rgb(196, 196, 196);
+  border-radius: 12px !important;
+
+  &:hover {
+    border: 1px solid #172b17 !important;
+  }
 }

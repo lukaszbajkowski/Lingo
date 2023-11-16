@@ -15,11 +15,14 @@ class EditPostModal extends React.Component {
             categories
         } = this.props;
 
-        const ModalStyle = {
+        const modalStyle = {
             bgcolor: 'background.paper',
+            position: 'absolute',
             boxShadow: 24,
             p: 4,
             borderRadius: 3,
+            maxHeight: '85vh',  // Set a maximum height for scrolling
+            overflowY: 'auto',  // Enable vertical scrolling
         };
 
         return (
@@ -30,7 +33,7 @@ class EditPostModal extends React.Component {
                 <Container maxWidth="sm">
                     <Paper
                         elevation={3}
-                        sx={ModalStyle}
+                        sx={modalStyle}
                         className={`ModalContainer`}
                     >
                         <Box
