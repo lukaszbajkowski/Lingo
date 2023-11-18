@@ -3,9 +3,9 @@ import {Box, Container, CssBaseline, ThemeProvider} from "@mui/material";
 import {createTheme} from "@mui/material/styles";
 import {useParams} from "react-router-dom";
 import PostStructure from "./PostStructure";
-import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import axios from "../../axios";
+import HeaderUser from "../BlogUser/Components/Header/HeaderUser";
 
 const theme = createTheme({
     palette: {
@@ -43,7 +43,7 @@ function PostPage ({match}) {
             <Container maxWidth="lg" className="Container">
                 <Box sx={{height: 'auto', mx: 2,}}>
                     <CssBaseline/>
-                    <Header/>
+                    <HeaderUser/>
                     {post ? (
                         <PostStructure post={post}/>
                     ) : (

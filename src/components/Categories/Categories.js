@@ -1,9 +1,12 @@
 import {Box, Container, CssBaseline, ThemeProvider} from "@mui/material";
-import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import React from "react";
 import {createTheme} from "@mui/material/styles";
-import CategoriesContent from "./CategoriesContent";
+import CategoriesContentUser from "./CategoriesContentUser";
+import HeaderUser from "../BlogUser/Components/Header/HeaderUser";
+import HeaderAdmin from "../BlogAdmin/Components/Header/HeaderAdmin";
+import {useLocation} from "react-router-dom";
+import CategoriesContentAdmin from "../CategoriesAdmin/CategoriesContentAdmin";
 
 const theme = createTheme({
     palette: {
@@ -23,13 +26,24 @@ const theme = createTheme({
 });
 
 function Categories () {
+    const location = useLocation();
+
     return (
         <ThemeProvider theme={theme}>
             <Container maxWidth="lg" className="Container">
                 <Box sx={{height: 'auto', mx: 2,}}>
                     <CssBaseline/>
-                    <Header/>
-                    <CategoriesContent/>
+                    {location.pathname === "/blog" ? (
+                        <div>
+                            <HeaderUser/>
+                            <CategoriesContentUser/>
+                        </div>
+                    ) : (
+                        <div>
+                            <HeaderAdmin/>
+                            <CategoriesContentAdmin/>
+                        </div>
+                    )}
                 </Box>
             </Container>
             <Container maxWidth="lg" className="Container" style={{padding: 0}}>

@@ -9,8 +9,8 @@ import Logo from "./Buttons/Logo";
 import GetStartedButton from "../LandingPage/Components/Header/Buttons/GetStartedButtonLandingPage";
 import {useLocation} from "react-router-dom";
 import {Box} from "@mui/material";
-import AllPosts from "../BlogAdmin/Components/Header/Buttons/AllPosts";
-import AllCategoryButton from "../BlogAdmin/Components/Header/Buttons/AllCategoryButton";
+import AllAdminPosts from "../BlogAdmin/Components/Header/Buttons/AllAdminPosts";
+import AllAdminCategoryButton from "../BlogAdmin/Components/Header/Buttons/AllAdminCategoryButton";
 
 function Header () {
     const location = useLocation();
@@ -62,11 +62,11 @@ function Header () {
                         <Box className={`ButtonContainer`}>
                             <AnimatedElement
                                 className="animated-element-header animated-element animated-element-delay-200ms">
-                                <AllPosts/>
+                                <AllAdminPosts/>
                             </AnimatedElement>
                             <AnimatedElement
                                 className="animated-element-header animated-element animated-element-delay-300ms">
-                                <AllCategoryButton/>
+                                <AllAdminCategoryButton/>
                             </AnimatedElement>
                         </Box>
                     )}

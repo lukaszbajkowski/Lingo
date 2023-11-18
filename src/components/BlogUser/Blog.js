@@ -3,10 +3,11 @@ import '../../styles/style.scss';
 import '../styles_components/style_animations.scss';
 import {useLocation} from "react-router-dom";
 
-import Header from '../Header/Header';
 import Footer from "../Footer/Footer";
 import ContentUser from "./Components/ContentUser";
 import ContentAdmin from "../BlogAdmin/Components/ContentAdmin";
+import HeaderAdmin from "../BlogAdmin/Components/Header/HeaderAdmin";
+import HeaderUser from "./Components/Header/HeaderUser";
 
 import {Box, Container, CssBaseline, ThemeProvider} from "@mui/material";
 import {createTheme} from '@mui/material/styles';
@@ -51,11 +52,16 @@ function BlogUser () {
             <Container maxWidth="lg" className="Container">
                 <Box sx={{height: 'auto', mx: 2,}}>
                     <CssBaseline/>
-                    <Header/>
                     {location.pathname === "/blog" ? (
-                        <ContentUser/>
+                        <div>
+                            <HeaderUser/>
+                            <ContentUser/>
+                        </div>
                     ) : (
-                        <ContentAdmin/>
+                        <div>
+                            <HeaderAdmin/>
+                            <ContentAdmin/>
+                        </div>
                     )}
                 </Box>
             </Container>

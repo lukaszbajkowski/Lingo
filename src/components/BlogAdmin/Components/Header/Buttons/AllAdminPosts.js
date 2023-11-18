@@ -2,20 +2,20 @@ import {Link as RouterLink} from "react-router-dom";
 import Button from "@mui/material/Button";
 import React from "react";
 
-function AllCategoryButton() {
+function AllAdminPosts() {
     return (
         <Button
             variant="contained"
             color="primary"
             component={RouterLink}
             className="ButtonGetStarted"
-            to="/categories"
+            to="/blog/admin"
         >
-            Kategorie
+            Posty
         </Button>
     )
 }
 
-export default AllCategoryButton;
+export default AllAdminPosts;
 
 

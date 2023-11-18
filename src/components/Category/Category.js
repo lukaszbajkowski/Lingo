@@ -3,8 +3,8 @@ import {Box, Container, CssBaseline, ThemeProvider} from "@mui/material";
 import {createTheme} from "@mui/material/styles";
 import {useParams} from "react-router-dom";
 import axios from "../../axios";
-import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import HeaderUser from "../BlogUser/Components/Header/HeaderUser";
 
 const theme = createTheme({
     palette: {
@@ -42,7 +42,7 @@ function CategoryPage () {
             <Container maxWidth="lg" className="Container">
                 <Box sx={{height: 'auto', mx: 2,}}>
                     <CssBaseline/>
-                    <Header/>
+                    <HeaderUser/>
                     {category ? (
                         <div>
                             <h1>{category.name}</h1>

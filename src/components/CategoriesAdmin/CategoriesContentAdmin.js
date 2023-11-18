@@ -1,11 +1,11 @@
 import React from "react";
 import '../styles_components/style_content.scss';
 import axios from "../../axios";
-import SingleCategory from "./SingleCategory";
 import {Container, Grid, Typography} from "@mui/material";
 import AnimatedElement from "../Animation/AnimatedElementOnce";
+import SingleCategory from "../Categories/SingleCategory";
 
-class CategoriesContent extends React.Component {
+class CategoriesContentUser extends React.Component {
     constructor (props) {
         super(props);
 
@@ -72,4 +72,4 @@ class CategoriesContent extends React.Component {
     }
 }
 
-export default CategoriesContent;
+export default CategoriesContentUser;

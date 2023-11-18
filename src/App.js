@@ -14,6 +14,7 @@ function App () {
                 <Route path="/blog" element={<Blog/>}/>
                 <Route path="/blog/admin" element={<Blog/>}/>
                 <Route path="/categories" element={<Categories/>}/>
+                <Route path="/categories/admin" element={<Categories/>}/>
                 <Route path="/category/:id" element={<Category/>}/>
                 <Route path="/post/:id" element={<Post/>}/>
             </Routes>
