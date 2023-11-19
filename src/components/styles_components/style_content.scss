@@ -66,6 +66,10 @@
   margin: 32px 24px !important;
 }
 
+.ManageCategorySection {
+  padding-block:8px;
+}
+
 .CategoryCTA {
   margin-top: 86px !important;
   padding-left: 16px;
@@ -80,6 +84,7 @@
 
 .PositionCategories {
   padding-inline: 16px;
+  margin-top: 86px !important;
 
   @media (max-width: 600px) {
     padding-inline: 0;

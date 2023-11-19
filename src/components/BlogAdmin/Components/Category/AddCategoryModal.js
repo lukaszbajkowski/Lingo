@@ -9,10 +9,12 @@ import AddButton from "./ModalElement/Buttons/AddCategoryButton";
 import {lightenHexColor} from "./ColorUtilities";
 import ColorPicker from "./ModalElement/ColorPicker";
 import IconPicker from "./ModalElement/IconPicker";
+import ShortDesc from "./ModalElement/Input/ShortDesc";
 
 const AddCategoryModal = ({isOpen, toggleModal, addCategory}) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    const [shortdesc, setShortDesc] = useState("");
     const [selectedIcon, setSelectedIcon] = useState('');
     const [color, setColor] = useState('');
 
@@ -24,6 +26,7 @@ const AddCategoryModal = ({isOpen, toggleModal, addCategory}) => {
         const newCategory = {
             name,
             description,
+            shortdesc,
             icon: selectedIcon,
             color,
             iconColor: lightenHexColor(color, 90),
@@ -36,6 +39,7 @@ const AddCategoryModal = ({isOpen, toggleModal, addCategory}) => {
     const handlecloseAddCategory = () => {
         setName("");
         setDescription("");
+        setShortDesc("");
         setSelectedIcon("");
         setColor("");
         toggleModal();
@@ -83,6 +87,12 @@ const AddCategoryModal = ({isOpen, toggleModal, addCategory}) => {
                         <Desc
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
+                        />
+                    </Box>
+                    <Box mt={2}>
+                        <ShortDesc
+                            value={shortdesc}
+                            onChange={(e) => setShortDesc(e.target.value)}
                         />
                     </Box>
                     <Box mt={2}>

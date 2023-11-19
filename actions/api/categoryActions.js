@@ -13,11 +13,12 @@ const categoryActions = {
 
     async createCategory (req, res) {
         try {
-            const {name, description, icon, color, iconColor} = req.body;
+            const {name, description, shortdesc, icon, color, iconColor} = req.body;
 
             const newCategory = new Category({
                 name,
                 description,
+                shortdesc,
                 icon,
                 color,
                 iconColor
@@ -37,6 +38,31 @@ const categoryActions = {
         const category = await Category.findOne({_id: id});
 
         res.status(200).json(category);
+    },
+
+    async updateCategory (req, res) {
+        const id = req.params.id;
+        const {name, description, shortdesc, icon, color, iconColor} = req.body;
+
+        const updatedData = {
+            name,
+            description,
+            shortdesc,
+            icon,
+            color,
+            iconColor,
+            updatedAt: new Date(),
+        };
+
+        const category = await Category.findOneAndUpdate({_id: id}, updatedData, {new: true});
+
+        res.status(201).json(category);
+    },
+
+    async deleteCategory (req, res) {
+        const id = req.params.id;
+        await Category.findOneAndDelete({_id: id});
+        res.sendStatus(204);
     }
 };
 

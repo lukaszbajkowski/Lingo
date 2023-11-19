@@ -10,6 +10,11 @@ router.get('/categories/:id', categoryActions.getCategory);
 
 router.post('/categories', categoryActions.createCategory);
 
+router.put('/category/:id', categoryActions.updateCategory);
+
+router.delete('/category/:id', categoryActions.deleteCategory);
+
+
 
 router.get('/posts', postActions.getPosts);
 
