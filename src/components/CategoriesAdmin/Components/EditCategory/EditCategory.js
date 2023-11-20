@@ -54,8 +54,6 @@ export default function EditCategory (props) {
         props.onEdit(note);
     }
 
-    console.log(props)
-
     return (
         <div>
             <Box className={`InputTitleContainer`}>

@@ -52,7 +52,7 @@ class CategoriesContentUser extends React.Component {
                     container
                     columnSpacing={{xs: 2, sm: 6, md: 6}}
                     rowSpacing={{xs: 4, sm: 6, md: 6}}
-                    className="PositionCategories"
+                    className="PositionUserCategories"
                 >
                     {reversedCategories.map((category) => (
                         <SingleCategory

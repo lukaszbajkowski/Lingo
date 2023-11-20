@@ -33,7 +33,7 @@ function Categories () {
             <Container maxWidth="lg" className="Container">
                 <Box sx={{height: 'auto', mx: 2,}}>
                     <CssBaseline/>
-                    {location.pathname === "/blog" ? (
+                    {location.pathname === "/categories" ? (
                         <div>
                             <HeaderUser/>
                             <CategoriesContentUser/>

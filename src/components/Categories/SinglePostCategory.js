@@ -1,13 +1,13 @@
 import {Grid} from "@mui/material";
 import React from "react";
-import AnimatedElement from "../../Animation/AnimatedElementOnce";
-import CategoryButtonUser from "./Buttons/CategoryButtonUser";
-import TitleUser from "./Texts/TitleUser";
-import IntroductionUser from "./Texts/IntroductionUser";
-import ImageUser from "./Img/ImageUser";
+import AnimatedElement from "../Animation/AnimatedElementOnce";
+import ImageUser from "../BlogUser/Components/Img/ImageUser";
+import TitleUser from "../BlogUser/Components/Texts/TitleUser";
+import IntroductionUser from "../BlogUser/Components/Texts/IntroductionUser";
+import {Link as RouterLink} from "react-router-dom";
+import Button from "@mui/material/Button";
 
-function SingelPost (props) {
-    const categoryName = props.categories.find(category => category._id === props.category)?.name;
+function SingelPostCategory (props) {
 
     return (
         <AnimatedElement className={`animated-element animated-element-delay-100ms`}>
@@ -15,17 +15,20 @@ function SingelPost (props) {
                 <Grid item xs={12} sm={12} md={6}>
                     <ImageUser
                         id={props.id}
-                        className={""}
+                        className={props.className}
                     />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}>
-                    <Grid item xs={12} className={`Position`}>
+                    <Grid item xs={12} className={props.className}>
                         <AnimatedElement className={`animated-element animated-element-delay-200ms`}>
-                            <CategoryButtonUser
-                                category={categoryName}
-                                category_id={props.category}
-                                categories={props.categories}
-                            />
+                            <Button
+                                variant="outlined"
+                                color="primary"
+                                component={RouterLink}
+                                className="CategoryButton"
+                            >
+                                {props.category}
+                            </Button>
                         </AnimatedElement>
                         <AnimatedElement className={`animated-element animated-element-delay-300ms`}>
                             <TitleUser
@@ -46,4 +49,4 @@ function SingelPost (props) {
     );
 }
 
-export default SingelPost;
+export default SingelPostCategory;

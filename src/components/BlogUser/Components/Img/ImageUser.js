@@ -7,7 +7,7 @@ function ImageUser (props) {
             to={`/post/${props.id}`}
             className={`HoverFont`}
         >
-            <div className={`Content`}></div>
+            <div className={`Content${props.className}`}></div>
         </RouterLink>
     );
 }

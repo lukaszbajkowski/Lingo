@@ -1,4 +1,5 @@
 const Category = require('../../db/models/Category');
+const Post = require("../../db/models/Post");
 
 const categoryActions = {
     async getCategories (req, res) {
@@ -34,10 +35,22 @@ const categoryActions = {
     },
 
     async getCategory (req, res) {
-        const id = req.params.id;
-        const category = await Category.findOne({_id: id});
+        try {
+            const id = req.params.id;
 
-        res.status(200).json(category);
+            const posts = await Post.find({category: id}).exec();
+
+            const category = await Category.findOne({_id: id});
+            const categoryWithPosts = {
+                ...category.toObject(),
+                posts: posts,
+            };
+
+            res.status(200).json(categoryWithPosts);
+        } catch (error) {
+            console.error("Błąd podczas pobierania treści kategorii:", error);
+            res.status(500).json({error: "Internal Server Error"});
+        }
     },
 
     async updateCategory (req, res) {

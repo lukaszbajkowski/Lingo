@@ -5,6 +5,7 @@ import {useParams} from "react-router-dom";
 import axios from "../../axios";
 import Footer from "../Footer/Footer";
 import HeaderUser from "../BlogUser/Components/Header/HeaderUser";
+import CategoryContent from "./CategoryContent";
 
 const theme = createTheme({
     palette: {
@@ -25,7 +26,7 @@ const theme = createTheme({
 
 function CategoryPage () {
     const {id} = useParams();
-    const [category, setCategory] = useState(null);
+    const [category, setCategory] = useState("");
 
     useEffect(() => {
         axios.get(`/categories/${id}`)
@@ -43,14 +44,7 @@ function CategoryPage () {
                 <Box sx={{height: 'auto', mx: 2,}}>
                     <CssBaseline/>
                     <HeaderUser/>
-                    {category ? (
-                        <div>
-                            <h1>{category.name}</h1>
-                            <p>{category.description}</p>
-                        </div>
-                    ) : (
-                        <p>Ładowanie...</p>
-                    )}
+                    <CategoryContent category={category}/>
                 </Box>
             </Container>
             <Container maxWidth="lg" className="Container" style={{padding: 0}}>
