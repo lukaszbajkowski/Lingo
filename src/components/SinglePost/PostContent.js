@@ -45,9 +45,7 @@ function PostContent (props) {
                         />
                     </AnimatedElement>
                     <AnimatedElement className={`animated-element animated-element-delay-300ms`}>
-                        <PostText
-                            body={props.body}
-                        />
+                        <div dangerouslySetInnerHTML={{ __html: props.body }} />
                     </AnimatedElement>
                 </Grid>
             </Grid>

@@ -19,7 +19,7 @@ export default function CategoryContent ({category}) {
                     variant='body1'
                     className={`PositionUserCategory Font`}
                 >
-                    {category.description}
+                    <div dangerouslySetInnerHTML={{__html: category.description}}/>
                 </Typography>
             </AnimatedElement>
 
@@ -46,7 +46,16 @@ export default function CategoryContent ({category}) {
 
                 </Box>
             ) : (
-                <p>Brak postów w tej kategorii.</p>
+                <Box>
+                    <AnimatedElement className={`animated-element animated-element-delay-300ms`}>
+                        <Typography
+                            variant={`h6`}
+                            className={`PositionUserCategoryPost Font`}
+                        >
+                            Brak postów w tej kategorii.
+                        </Typography>
+                    </AnimatedElement>
+                </Box>
             )}
         </Container>
     )

@@ -6,6 +6,7 @@ import OpenAddPostButton from "../AddSection/OpenAddPostButton"; // Importuj mod
 function NewPost (props) {
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
+    const [shortbody, setShortbody] = useState('');
     const [category, setCategory] = useState('');
     const [categories, setCategories] = useState([]); // Dodaj stan kategorii
     const [open, setOpen] = useState(false);
@@ -42,12 +43,14 @@ function NewPost (props) {
         const note = {
             title: title,
             body: desc,
+            shortbody: shortbody,
             category: category,
         };
         props.onAdd(note);
 
         setTitle('');
         setDesc('');
+        setShortbody('');
         setCategory('');
         handleClose();
     };
@@ -65,7 +68,9 @@ function NewPost (props) {
                 title={title}
                 onTitleChange={(event) => setTitle(event.target.value)}
                 desc={desc}
-                onDescChange={(event) => setDesc(event.target.value)}
+                onDescChange={(value) => setDesc(value)}
+                shortbody={shortbody}
+                onShortBodyChange={(event) => setShortbody(event.target.value)}
                 category={category}
                 onCategoryChange={(event) => setCategory(event.target.value)}
                 categories={categories}

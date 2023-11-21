@@ -1,8 +1,7 @@
 import React, {useState} from "react";
-import {Box, Container, Modal, Paper} from "@mui/material";
+import {Box, Container, Modal, Paper, Typography} from "@mui/material";
 import ModalTitle from "./ModalElement/ModalTitle";
 import Title from "../AddPost/ModalElement/Input/Title";
-import Desc from "../AddPost/ModalElement/Input/Desc";
 import CloseButton from "../AddPost/ModalElement/Buttons/CloseButton";
 import CancelButton from "./ModalElement/Buttons/CancelCategoryButton";
 import AddButton from "./ModalElement/Buttons/AddCategoryButton";
@@ -10,6 +9,7 @@ import {lightenHexColor} from "./ColorUtilities";
 import ColorPicker from "./ModalElement/ColorPicker";
 import IconPicker from "./ModalElement/IconPicker";
 import ShortDesc from "./ModalElement/Input/ShortDesc";
+import ReactQuill from "react-quill";
 
 const AddCategoryModal = ({isOpen, toggleModal, addCategory}) => {
     const [name, setName] = useState("");
@@ -17,6 +17,7 @@ const AddCategoryModal = ({isOpen, toggleModal, addCategory}) => {
     const [shortdesc, setShortDesc] = useState("");
     const [selectedIcon, setSelectedIcon] = useState('');
     const [color, setColor] = useState('');
+    const [isFocused, setIsFocused] = useState(false);
 
     const handleIconChange = (iconName) => {
         setSelectedIcon(iconName);
@@ -55,6 +56,14 @@ const AddCategoryModal = ({isOpen, toggleModal, addCategory}) => {
         overflowY: 'auto',
     };
 
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+
+    const handleBlur = () => {
+        setIsFocused(false);
+    };
+
     return (
         <Modal
             open={isOpen}
@@ -83,10 +92,21 @@ const AddCategoryModal = ({isOpen, toggleModal, addCategory}) => {
                             onChange={(e) => setName(e.target.value)}
                         />
                     </Box>
-                    <Box mt={2}>
-                        <Desc
+                    <Box
+                        mt={2}
+                        className={`quill-container ${isFocused ? 'focused' : ''}`}
+                    >
+                        <Typography
+                            flexGrow={1}
+                            className={'InputBorder'}
+                        >
+                            Treść
+                        </Typography>
+                        <ReactQuill
                             value={description}
-                            onChange={(e) => setDescription(e.target.value)}
+                            onFocus={handleFocus}
+                            onBlur={handleBlur}
+                            onChange={(newValue) => setDescription(newValue)}
                         />
                     </Box>
                     <Box mt={2}>

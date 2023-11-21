@@ -4,6 +4,7 @@ import {Link as RouterLink} from "react-router-dom";
 import {Button, Card, CardContent, Grid, Typography} from "@mui/material";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import ManageCategorySection from "./Components/ManageCategorySection";
+import "../styles_components/style_content.scss"
 
 function SingleAdminCategory (props) {
     const editHandler = () => {
@@ -18,9 +19,18 @@ function SingleAdminCategory (props) {
         });
     }
     return (
-        <Grid item xs={12} sm={6} style={{width: '100%'}}>
+        <Grid
+            item
+            xs={12}
+            sm={12}
+            md={6}
+            style={{width: '100%'}}
+        >
             <AnimatedElement className={`animated-element animated-element-delay-100ms`}>
-                <Grid container spacing={2}>
+                <Grid container
+                      spacing={2}
+                      className={`SingleAdminCategory`}
+                >
                     <Grid item xs={6}>
                         <Card className={`Card`}>
                             <CardContent className={`CardContent`}>

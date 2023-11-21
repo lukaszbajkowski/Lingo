@@ -9,6 +9,10 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    shortbody: {
+        type: String,
+        required: true,
+    },
     category: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category',

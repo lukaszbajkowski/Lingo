@@ -5,6 +5,7 @@ function ImagePost (props) {
     return (
         <ImageUser
             id={props.id}
+            className={props.className}
         />
     );
 }

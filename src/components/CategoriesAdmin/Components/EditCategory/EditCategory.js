@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Box} from "@mui/material";
+import {Box, Typography} from "@mui/material";
 import Title from "../../../BlogAdmin/Components/AddPost/ModalElement/Input/Title";
 import Desc from "../../../BlogAdmin/Components/AddPost/ModalElement/Input/Desc";
 import CancelEditButton from "../../../BlogAdmin/Components/EditPost/ModalElement/Buttons/CancelEditButton";
@@ -8,6 +8,7 @@ import IconPickerAdmin from "./ModalElement/Select/IconPickerAdmin";
 import ColorPicker from "../../../BlogAdmin/Components/Category/ModalElement/ColorPicker";
 import {lightenHexColor} from "../../../BlogAdmin/Components/Category/ColorUtilities";
 import ShortDesc from "../../../BlogAdmin/Components/Category/ModalElement/Input/ShortDesc";
+import ReactQuill from "react-quill";
 
 export default function EditCategory (props) {
     const [name, setName] = useState(props.name);
@@ -15,6 +16,7 @@ export default function EditCategory (props) {
     const [shortdesc, setShortDesc] = useState(props.shortDescription);
     const [icon, setIcon] = useState(props.icon);
     const [color, setColor] = useState(props.color);
+    const [isFocused, setIsFocused] = useState(false);
 
     const changNameHandler = (event) => {
         const value = event.target.value;
@@ -22,8 +24,8 @@ export default function EditCategory (props) {
     }
 
     const changeDescHandler = (event) => {
-        const value = event.target.value;
-        setDesc(value);
+        // const value = event.target.value;
+        setDesc(event);
     }
 
     const changeShortDescHandler = (event) => {
@@ -40,6 +42,14 @@ export default function EditCategory (props) {
         const value = event.hex;
         setColor(value);
     }
+
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+
+    const handleBlur = () => {
+        setIsFocused(false);
+    };
 
     const editCategory = () => {
         const note = {
@@ -62,10 +72,27 @@ export default function EditCategory (props) {
                     onChange={changNameHandler}
                 />
             </Box>
-            <Box mt={2}>
-                <Desc
+            {/*<Box mt={2}>*/}
+            {/*    <Desc*/}
+            {/*        value={desc}*/}
+            {/*        onChange={changeDescHandler}*/}
+            {/*    />*/}
+            {/*</Box>*/}
+            <Box
+                mt={2}
+                className={`quill-container ${isFocused ? 'focused' : ''}`}
+            >
+                <Typography
+                    flexGrow={1}
+                    className={'InputBorder'}
+                >
+                    Treść
+                </Typography>
+                <ReactQuill
                     value={desc}
                     onChange={changeDescHandler}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
                 />
             </Box>
             <Box mt={2}>

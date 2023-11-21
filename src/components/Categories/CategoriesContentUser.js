@@ -60,6 +60,7 @@ class CategoriesContentUser extends React.Component {
                             id={category._id}
                             name={category.name}
                             description={category.description}
+                            shortdesc={category.shortdesc}
                             icon={category.icon}
                             color={category.color}
                             iconColor={category.iconColor}

@@ -1,12 +1,14 @@
-import React from 'react';
-import {Box, Container, Modal, Paper} from '@mui/material';
-import Title from "./ModalElement/Input/Title";
-import Desc from "./ModalElement/Input/Desc";
+import React, {useState} from 'react';
+import {Box, Container, Modal, Paper, Typography} from '@mui/material';
 import CloseButton from "./ModalElement/Buttons/CloseButton";
 import ModalTitle from "./ModalElement/ModalTitle";
 import CancelButton from "./ModalElement/Buttons/CancelButton";
 import AddButton from "./ModalElement/Buttons/AddButton";
 import Category from "./ModalElement/Select/Category";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import Title from "./ModalElement/Input/Title";
+import ShortBody from "./ModalElement/Input/ShortBody";
 
 const modalStyle = {
     bgcolor: 'background.paper',
@@ -18,7 +20,16 @@ const modalStyle = {
     overflowY: 'auto',
 };
 
-function NewPostModal (props) {
+const NewPostModal = (props) => {
+    const [isFocused, setIsFocused] = useState(false);
+
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+
+    const handleBlur = () => {
+        setIsFocused(false);
+    };
     return (
         <Modal
             open={props.open}
@@ -47,10 +58,27 @@ function NewPostModal (props) {
                             onChange={props.onTitleChange}
                         />
                     </Box>
-                    <Box mt={2}>
-                        <Desc
+                    <Box
+                        mt={2}
+                        className={`quill-container ${isFocused ? 'focused' : ''}`}
+                    >
+                        <Typography
+                            flexGrow={1}
+                            className={'InputBorder'}
+                        >
+                            Treść
+                        </Typography>
+                        <ReactQuill
                             value={props.desc}
-                            onChange={props.onDescChange}
+                            onFocus={handleFocus}
+                            onBlur={handleBlur}
+                            onChange={(newValue) => props.onDescChange(newValue)}
+                        />
+                    </Box>
+                    <Box mt={2}>
+                        <ShortBody
+                            value={props.shortbody}
+                            onChange={props.onShortBodyChange}
                         />
                     </Box>
                     <Box mt={2}>

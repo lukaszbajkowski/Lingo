@@ -3,7 +3,7 @@ const Post = require('../../db/models/Post');
 class PostActions {
     async savePost (req, res) {
         try {
-            const {title, body, category} = req.body;
+            const {title, body, shortbody, category} = req.body;
 
             let newPost;
 
@@ -11,6 +11,7 @@ class PostActions {
                 newPost = new Post({
                     title,
                     body,
+                    shortbody,
                     category,
                     createdAt: new Date(),
                 });
@@ -50,11 +51,12 @@ class PostActions {
 
     async updatePost (req, res) {
         const id = req.params.id;
-        const {title, body, category} = req.body;
+        const {title, body, shortbody, category} = req.body;
 
         const updatedData = {
             title,
             body,
+            shortbody,
             category,
             updatedAt: new Date(),
         };

@@ -27,7 +27,7 @@ function SingleCategory (props) {
                             variant="body1"
                             className={`Font`}
                         >
-                            {props.description.split(' ').slice(0, 20).join(' ')}
+                            {props.shortdesc}
                         </Typography>
                         <div className={`ArrowButtonPosition`}>
                             <Button

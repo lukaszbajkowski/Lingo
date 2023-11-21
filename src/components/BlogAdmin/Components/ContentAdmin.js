@@ -125,6 +125,7 @@ class ContentAdmin extends React.Component {
                         key={note._id}
                         title={note.title}
                         body={note.body}
+                        shortbody={note.shortbody}
                         category={note.category}
                         id={note._id}
                         categories={this.state.categories}

@@ -13,6 +13,7 @@ function Posts (props) {
             _id: props.id,
             title: props.title,
             body: props.body,
+            shortbody: props.shortbody,
             category: props.category
         });
     }
@@ -25,6 +26,7 @@ function Posts (props) {
                 <Grid item xs={12} sm={12} md={6}>
                     <Image
                         id={props.id}
+                        className={""}
                     />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}>
@@ -49,7 +51,7 @@ function Posts (props) {
                         </AnimatedElement>
                         <AnimatedElement className={`animated-element animated-element-delay-400ms`}>
                             <Introduction
-                                body={props.body}
+                                body={props.shortbody}
                                 id={props.id}
                             />
                         </AnimatedElement>
