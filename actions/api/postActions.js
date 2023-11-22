@@ -20,7 +20,6 @@ class PostActions {
                 return res.status(422).json({message: err.message})
             }
 
-
             res.status(201).json(newPost);
         } catch (error) {
             console.error('Błąd podczas zapisywania posta:', error);

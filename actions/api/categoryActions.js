@@ -16,16 +16,21 @@ const categoryActions = {
         try {
             const {name, description, shortdesc, icon, color, iconColor} = req.body;
 
-            const newCategory = new Category({
-                name,
-                description,
-                shortdesc,
-                icon,
-                color,
-                iconColor
-            });
+            let newCategory;
 
-            await newCategory.save();
+            try {
+                newCategory = new Category({
+                    name,
+                    description,
+                    shortdesc,
+                    icon,
+                    color,
+                    iconColor
+                });
+                await newCategory.save();
+            } catch (err) {
+                return res.status(422).json({message: err.message})
+            }
 
             res.status(201).json(newCategory);
         } catch (error) {

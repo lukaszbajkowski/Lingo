@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const { port } = require('./config');
 const apiRouter = require('./routes/api');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -19,7 +18,4 @@ app.use(cors());
 app.use('/api/', apiRouter);
 
 // server
-app.listen(port, function () {
-    console.log(`Example app listening on port ${port}!`);
-});
-
+app.listen(3001);
