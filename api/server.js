@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const apiRouter = require('./routes/api');
+const apiRouter = require('../routes/api');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -18,4 +18,8 @@ app.use(cors());
 app.use('/api/', apiRouter);
 
 // server
-app.listen(3001);
+if (process.env.API_PORT) {
+    app.listen(process.env.API_PORT);
+}
+
+module.exports = app;
