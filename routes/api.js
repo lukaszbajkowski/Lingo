@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const postActions = require('../api/postActions');
-const categoryActions = require('../api/categoryActions');
+const postActions = require('../actions/api/postActions');
+const categoryActions = require('../actions/api/categoryActions');
 
 router.get('/categories', categoryActions.getCategories);
 
