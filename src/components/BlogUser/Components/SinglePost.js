@@ -35,7 +35,7 @@ function SingelPost (props) {
                         </AnimatedElement>
                         <AnimatedElement className={`animated-element animated-element-delay-400ms`}>
                             <IntroductionUser
-                                body={props.body}
+                                body={props.shortbody}
                                 id={props.id}
                             />
                         </AnimatedElement>

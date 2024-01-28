@@ -58,6 +58,7 @@ class ContentUser extends React.Component {
                         id={note._id}
                         title={note.title}
                         body={note.body}
+                        shortbody={note.shortbody}
                         category={note.category}
                         categories={categories}
                     />

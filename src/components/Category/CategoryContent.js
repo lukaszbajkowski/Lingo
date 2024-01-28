@@ -38,7 +38,7 @@ export default function CategoryContent ({category}) {
                             key={post._id}
                             id={post._id}
                             title={post.title}
-                            body={post.body}
+                            body={post.shortbody}
                             category={category.name}
                             className={index === 0 ? 'FirstElementPosition' : 'Position'}
                         />
