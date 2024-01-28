@@ -9,6 +9,8 @@ import HowItWorksButton from "../LandingPage/Components/Header/Buttons/HowItWork
 import Logo from "../Header/Buttons/Logo";
 
 function Footer () {
+    const currentYear = new Date().getFullYear();
+
     return (
         <Grid container spacing={2} className="Footer">
             <Grid item xs={12} style={{paddingLeft: 0, paddingTop: 0, marginTop: 'auto', marginBottom: 'auto',}}>
@@ -39,7 +41,7 @@ function Footer () {
             <Grid item xs={12} sm={7} style={{marginBlock: "auto"}}>
                 <AnimatedElement className="animated-element-copyright">
                     <h3 className="Copyright">
-                        Copyright © 2023 Lingo All rights reserved
+                        Copyright © {currentYear} Lingo All rights reserved
                     </h3>
                 </AnimatedElement>
             </Grid>
