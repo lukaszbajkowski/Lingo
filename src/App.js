@@ -5,6 +5,7 @@ import Post from "./components/SinglePost/Post";
 import Category from "./components/Category/Category";
 import Blog from "./components/BlogUser/Blog";
 import Categories from "./components/Categories/Categories";
+import StartPage from "./components/Start/Start";
 
 function App () {
     return (
@@ -17,6 +18,7 @@ function App () {
                 <Route path="/categories/admin" element={<Categories/>}/>
                 <Route path="/category/:id" element={<Category/>}/>
                 <Route path="/post/:id" element={<Post/>}/>
+                <Route path="/start" element={<StartPage/>}/>
             </Routes>
         </Router>
     );

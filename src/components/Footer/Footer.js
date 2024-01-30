@@ -22,16 +22,18 @@ function Footer () {
                 <AnimatedElement className="animated-element-footer FooterPosition">
                     <Grid container spacing={2} className="FooterElement">
                         <Grid item>
-                            {/*Buttons from header*/}
                             <AboutUsButton/>
                         </Grid>
                         <Grid item>
-                            {/*Buttons from header*/}
                             <HowItWorksButton/>
                         </Grid>
                         <Grid item style={{paddingLeft: 0}}>
-                            <Button variant="text" color="inherit" component={RouterLink} className="column-button"
-                                    to="/blog">
+                            <Button variant="text"
+                                    color="inherit"
+                                    component={RouterLink}
+                                    className="column-button"
+                                    to="/blog"
+                            >
                                 Blog
                             </Button>
                         </Grid>

@@ -4,7 +4,7 @@ import React from "react";
 
 function Logo () {
     return (
-        <RouterLink to="/">
+        <RouterLink to="/" >
             <img src={logo} alt="Logo" className="App-logo"/>
         </RouterLink>
     )
