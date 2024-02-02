@@ -33,6 +33,12 @@
   }
 }
 
+.join-size {
+  @media (min-width: 900px) {
+    height: 120%;
+  }
+}
+
 .mobile-form-container {
   @media (min-width: 900px) {
     position: relative;
@@ -98,6 +104,15 @@
   color: #172b17;
   border-bottom: 1px solid #172b17;
   transition: .3s;
+}
+
+.rules {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  color: #172b17;
+  margin-block: 12px !important;
+  font-size: 14px !important;
+  line-height: 22px !important;
+  font-weight: 400;
 }
 
 .separator {

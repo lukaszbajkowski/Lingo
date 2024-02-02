@@ -1,11 +1,11 @@
 import React from "react";
 import {Button, Grid, TextField, ThemeProvider, Typography, useMediaQuery, useTheme} from "@mui/material";
 import {createTheme} from "@mui/material/styles";
-import Logo from "./Logo";
+import Logo from "../Start/Logo";
 import {Link, useLocation} from "react-router-dom";
 import '../styles_components/style_start.scss';
-import SideList from "./List";
-import GoogleButton from "./GoogleButton";
+import SideList from "../Start/List";
+import GoogleButton from "../Start/GoogleButton";
 
 const theme = createTheme({
     palette: {
@@ -39,7 +39,7 @@ const focusedTextFieldStyle = {
     },
 };
 
-function StartPage () {
+function JoinPage () {
     const currentTheme = useTheme();
     const isSmallScreen = useMediaQuery(currentTheme.breakpoints.down('md'));
 
@@ -56,7 +56,7 @@ function StartPage () {
                             <Logo/>
                         </Grid>
                     )}
-                    <Grid item xs={12} md={6} className={`mobile-form-container`}>
+                    <Grid item xs={12} md={6} className={`mobile-form-container join-size`}>
                         {!isSmallScreen && (
                             <Logo/>
                         )}
@@ -68,29 +68,37 @@ function StartPage () {
                                     variant="h4"
                                     className={`title-form`}
                                 >
-                                    Witamy ponownie
+                                    Zacznij już teraz
                                 </Typography>
 
                                 <Typography
                                     variant={`body1`}
                                     className={`subtitle-form`}
                                 >
-                                    Nie posiadasz konta?&nbsp;
+                                    Masz już konto?&nbsp;
                                     <Link
-                                        to={`/join`}
+                                        to={`/start`}
                                         className={`subtitle-link`}
                                     >
-                                        Zarejestruj się
+                                        Zaloguj się
                                     </Link>
                                 </Typography>
 
                                 <div className={`google-button`}>
-                                    <GoogleButton isJoinPage={isJoinPage} />
+                                    <GoogleButton isJoinPage={isJoinPage}/>
                                 </div>
 
                                 <div className="separator">
-                                    Lub za pomocą adresu e-mail i hasła
+                                    Lub w kilka sekund dłużej
                                 </div>
+
+                                <TextField
+                                    label="Imię"
+                                    variant="outlined"
+                                    fullWidth
+                                    margin="normal"
+                                    sx={{...focusedTextFieldStyle}}
+                                />
 
                                 <TextField
                                     label="Adres e-mail"
@@ -108,13 +116,41 @@ function StartPage () {
                                     sx={{...focusedTextFieldStyle}}
                                 />
 
+                                <Typography
+                                    variant={`body1`}
+                                    className={`rules`}
+                                >
+                                    Klikając, akceptujesz&nbsp;
+                                    <Link
+                                        to={`/legal/terms-of-service`}
+                                        className={`subtitle-link`}
+                                    >
+                                        Regulamin
+                                    </Link>
+                                    ,&nbsp;
+                                    <Link
+                                        to={`/legal/privacy-policy`}
+                                        className={`subtitle-link`}
+                                    >
+                                        Politykę Prywatności
+                                    </Link>
+                                    &nbsp;i&nbsp;
+                                    <Link
+                                        to={`/legal/anti-spam-policy`}
+                                        className={`subtitle-link`}
+                                    >
+                                        Politykę Antyspamową
+                                    </Link>
+                                    .
+                                </Typography>
+
                                 <Button
                                     variant="contained"
                                     color="primary"
                                     fullWidth
                                     className={`login-button`}
                                 >
-                                    Zaloguj się
+                                    Zarejestruj się
                                 </Button>
 
                             </form>
@@ -130,4 +166,4 @@ function StartPage () {
     );
 }
 
-export default StartPage;
+export default JoinPage;

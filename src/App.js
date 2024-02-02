@@ -6,6 +6,7 @@ import Category from "./components/Category/Category";
 import Blog from "./components/BlogUser/Blog";
 import Categories from "./components/Categories/Categories";
 import StartPage from "./components/Start/Start";
+import JoinPage from "./components/Join/Join";
 
 function App () {
     return (
@@ -19,6 +20,10 @@ function App () {
                 <Route path="/category/:id" element={<Category/>}/>
                 <Route path="/post/:id" element={<Post/>}/>
                 <Route path="/start" element={<StartPage/>}/>
+                <Route path="/join" element={<JoinPage/>}/>
+                <Route path="/legal/terms-of-service" element={<></>}/>
+                <Route path="/legal/privacy-policy" element={<></>}/>
+                <Route path="/legal/anti-spam-policy" element={<></>}/>
             </Routes>
         </Router>
     );

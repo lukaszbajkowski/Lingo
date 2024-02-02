@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GoogleLogin () {
+function GoogleButton ({isJoinPage}) {
     return (
         <button className="gsi-material-button">
             <div className="gsi-material-button-state"></div>
@@ -20,12 +20,15 @@ function GoogleLogin () {
                         <path fill="none" d="M0 0h48v48H0z"></path>
                     </svg>
                 </div>
-                <span
-                    className="gsi-material-button-contents">Zaloguj się z Google</span>
-                <span style={{display: 'none'}}>Zaloguj się z Google</span>
+                <span className="gsi-material-button-contents">
+                {isJoinPage ? 'Zarejestruj się z Google' : 'Zaloguj się z Google'}
+            </span>
+                <span style={{display: 'none'}}>
+                {isJoinPage ? 'Zarejestruj się z Google' : 'Zaloguj się z Google'}
+            </span>
             </div>
         </button>
     );
 }
 
-export default GoogleLogin;
+export default GoogleButton;
